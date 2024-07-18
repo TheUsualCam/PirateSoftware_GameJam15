@@ -10,8 +10,16 @@ public class ExampleInputListener : MonoBehaviour
 
     private void OnEnable()
     {
+        // Subscribe to the STATIC events with +=
+        // The signature must match, if an event gives a float, the function must take a float
+        
+        // This one takes a Vector2, where X is horizontal and Y is vertical inputs. e.g pressing W sets Y to 1.
+        // This function is only called when the key CHANGES, so that means we have to save the data and use Update for per-frame effects.
         GameInput.OnMoveChanged += OnMove;
         
+        // These ones are buttons! Instead they have a "Start" and "End".
+        // Think of it like "Start" sets a bool to true
+        // and "End" sets a bool to false.
         GameInput.onLeftActionStart += OnLeftActionStart;
         GameInput.onLeftActionEnd += OnLeftActionEnd;
         
@@ -21,6 +29,8 @@ public class ExampleInputListener : MonoBehaviour
 
     private void OnDisable()
     {
+        // Unsubscribe to the STATIC events with -=
+        // Always unsubscribe, if left these become null pointers! Bad! Causes crashes/Errors.
         GameInput.OnMoveChanged -= OnMove;
         
         GameInput.onLeftActionStart -= OnLeftActionStart;
