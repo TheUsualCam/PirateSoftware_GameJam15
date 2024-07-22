@@ -6,21 +6,26 @@ public class RecipeManager : MonoBehaviour
 {
     [SerializeField] private List<Recipe> recipes = new List<Recipe>();
 
+    private IngredientSpawner ingredientSpawner;
+    private Recipe currentRecipe;
+    private int recipeIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < recipes.Count; i++)
-        {
-            for(int j = 0; j < recipes[i].requiredIngredients.Count; j++)
-            {
-                Debug.Log(recipes[i].requiredIngredients[j].ingredient.ingredientName + ", " + recipes[i].requiredIngredients[j].method);
-            }
-        }
+        ingredientSpawner = FindObjectOfType<IngredientSpawner>();
+        LoadNextRecipe();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadNextRecipe()
     {
-        
+        if(recipes.Count == 0)
+        {
+            return;
+        }
+
+        currentRecipe = recipes[recipeIndex];
+        recipeIndex++;
+        ingredientSpawner.SpawnRequiredIngredients(currentRecipe.requiredIngredients);
     }
 }
