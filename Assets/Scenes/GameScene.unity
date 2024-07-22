@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cc88490bdcfc044aaad392d4f9f0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
 --- !u!54 &1799047573
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &1836388354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,6 +638,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 270247677370287994, guid: a545a17aba3c2974fa8662810c720a0e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 1259356355925933451, guid: a545a17aba3c2974fa8662810c720a0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -678,21 +682,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3413525979202784167, guid: a545a17aba3c2974fa8662810c720a0e, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413525979202784167, guid: a545a17aba3c2974fa8662810c720a0e, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413525979202784167, guid: a545a17aba3c2974fa8662810c720a0e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1091fa972fbc2eb4ebbcf3c4ee22af6f, type: 2}
     - target: {fileID: 4016109311209721722, guid: a545a17aba3c2974fa8662810c720a0e, type: 3}
       propertyPath: m_Name
       value: RitualPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123507176636265683, guid: a545a17aba3c2974fa8662810c720a0e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123507176636265683, guid: a545a17aba3c2974fa8662810c720a0e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123507176636265683, guid: a545a17aba3c2974fa8662810c720a0e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123507176636265683, guid: a545a17aba3c2974fa8662810c720a0e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

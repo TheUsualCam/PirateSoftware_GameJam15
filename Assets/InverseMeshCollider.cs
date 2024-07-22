@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(MeshFilter))][RequireComponent(typeof(MeshRenderer))][RequireComponent(typeof(MeshCollider))]
+[RequireComponent(typeof(MeshCollider))]
 public class InverseMeshCollider : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Mesh mesh;
+    [ContextMenu("Invert Mesh")]
+    void InvertMesh()
     {
-        MeshFilter filter = GetComponent<MeshFilter>();
-        
-        Mesh meshToInvert = filter.sharedMesh;
+        MeshCollider collider = GetComponent<MeshCollider>();
+
+        Mesh meshToInvert = mesh;
         
         //Invert Triangles and Normals
         meshToInvert.triangles = meshToInvert.triangles.Reverse().ToArray();
