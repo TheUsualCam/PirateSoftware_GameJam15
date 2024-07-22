@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: TestRecipe1
   m_EditorClassIdentifier: 
   requiredIngredients:
-    ingredients:
-    - {fileID: 6196760810728215558, guid: 3cd60213f29de9246b6263f01f2632cb, type: 3}
-    - {fileID: 4104454583771185668, guid: 46146a45cd117cd488967ab409eab775, type: 3}
-    - {fileID: 8226259862038127321, guid: a683e03c113650a40a5d4d79bc299bcf, type: 3}
-    methods: 010000000200000000000000
+  - ingredient: {fileID: 8226259862038127321, guid: a683e03c113650a40a5d4d79bc299bcf, type: 3}
+    method: 1
+  - ingredient: {fileID: 4104454583771185668, guid: 46146a45cd117cd488967ab409eab775, type: 3}
+    method: 2
+  - ingredient: {fileID: 6196760810728215558, guid: 3cd60213f29de9246b6263f01f2632cb, type: 3}
+    method: 0

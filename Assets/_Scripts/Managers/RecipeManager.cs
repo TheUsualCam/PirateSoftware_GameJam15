@@ -11,9 +11,9 @@ public class RecipeManager : MonoBehaviour
     {
         for(int i = 0; i < recipes.Count; i++)
         {
-            for(int j = 0; j < recipes[i].requiredIngredients.ingredients.Count; j++)
+            for(int j = 0; j < recipes[i].requiredIngredients.Count; j++)
             {
-                Debug.Log(recipes[i].requiredIngredients.ingredients[j].ingredientName + ", " + recipes[i].requiredIngredients.methods[j]);
+                Debug.Log(recipes[i].requiredIngredients[j].ingredient.ingredientName + ", " + recipes[i].requiredIngredients[j].method);
             }
         }
     }

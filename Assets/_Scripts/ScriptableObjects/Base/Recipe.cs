@@ -13,11 +13,11 @@ public class Recipe : ScriptableObject
     }
 
     [System.Serializable]
-    public struct RequiredIngredients
+    public struct RequiredIngredient
     {
-        public List<Ingredient> ingredients;
-        public List<PrepMethod> methods;
+        public Ingredient ingredient;
+        public PrepMethod method;
     }
 
-    public RequiredIngredients requiredIngredients;
+    public List<RequiredIngredient> requiredIngredients = new List<RequiredIngredient>();
 }
