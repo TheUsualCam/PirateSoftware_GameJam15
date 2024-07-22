@@ -4,29 +4,14 @@ using UnityEngine;
 
 public class IngredientSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] ingredientsToSpawn;
+    [SerializeField] private GameObject[] spawnableIngredients;
     [SerializeField] private Transform spawnPosition;
-    [SerializeField] private float spawnInterval = 3.0f;
 
-    private float timer = 0;
-
-    // Start is called before the first frame update
-    void Start()
+    public void SpawnRequiredIngredients(List<RequiredIngredient> requiredIngredients)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(timer < spawnInterval)
+        for(int i = 0; i < requiredIngredients.Count; i++)
         {
-            timer += Time.deltaTime;
-        }
-        else
-        {
-            Instantiate(ingredientsToSpawn[Random.Range(0, ingredientsToSpawn.Length)], spawnPosition.position, Quaternion.identity);
-            timer = 0;
+            Instantiate(requiredIngredients[i].ingredient, spawnPosition.position, Quaternion.identity);
         }
     }
 }
