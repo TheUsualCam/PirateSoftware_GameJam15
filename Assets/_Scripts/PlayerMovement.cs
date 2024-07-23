@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private Vector3 _movementDirection;
     private Rigidbody _rigidbody;
+    public float rotationStep;
     
     private void OnEnable()
     {
@@ -21,12 +22,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (_movementDirection != Vector3.zero)
         {
             Vector3 movementUpdate = Time.deltaTime * speed * _movementDirection;
-            _rigidbody.MovePosition(transform.position + movementUpdate);
+            //Quaternion movementRotation = Quaternion.Slerp(Quaternion.Euler(transform.forward), Quaternion.Euler(_movementDirection), rotationStep * Time.deltaTime);
+            _rigidbody.AddForce(movementUpdate, ForceMode.VelocityChange);
+            
+            // Rotate to face velocity
+            transform.forward = Vector3.Lerp(transform.forward, _movementDirection, rotationStep * Time.fixedDeltaTime);
         }
     }
 
