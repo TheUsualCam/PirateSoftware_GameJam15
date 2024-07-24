@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _movementDirection;
     private Rigidbody _rigidbody;
     public float rotationStep;
+    public Animator animator;
     
     private void OnEnable()
     {
@@ -32,7 +33,9 @@ public class PlayerMovement : MonoBehaviour
             
             // Rotate to face velocity
             transform.forward = Vector3.Lerp(transform.forward, _movementDirection, rotationStep * Time.fixedDeltaTime);
+            
         }
+        animator.SetFloat("SpeedZ", _rigidbody.velocity.magnitude);
     }
 
     void OnMove(Vector2 movement)
