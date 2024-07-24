@@ -7,6 +7,7 @@ public class RecipeManager : MonoBehaviour
     [SerializeField] private List<Recipe> recipes = new List<Recipe>();
 
     private IngredientSpawner ingredientSpawner;
+    private UIManager uiManager;
     private Recipe currentRecipe;
     private int recipeIndex = 0;
 
@@ -14,6 +15,7 @@ public class RecipeManager : MonoBehaviour
     void Start()
     {
         ingredientSpawner = FindObjectOfType<IngredientSpawner>();
+        uiManager = FindObjectOfType<UIManager>();
         LoadNextRecipe();
     }
 
@@ -27,5 +29,6 @@ public class RecipeManager : MonoBehaviour
         currentRecipe = recipes[recipeIndex];
         recipeIndex++;
         ingredientSpawner.SpawnRequiredIngredients(currentRecipe.requiredIngredients);
+        uiManager.UpdateRecipeUI(currentRecipe);
     }
 }
