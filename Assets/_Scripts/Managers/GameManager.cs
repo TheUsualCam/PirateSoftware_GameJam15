@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Manager References")]
-    [SerializeField] private UIManager uiManager;
-
-    [Space, Header("Game State Parameters")]
+    [Header("Game State Parameters")]
     [SerializeField] private float gameTimerInMinutes = 3.0f;
+    [SerializeField] private float cauldronCorruptionMultiplier = 1.0f;
+    [SerializeField] private float maxCorruption = 100.0f;
+
+    private UIManager uiManager;
+    private RecipeManager recipeManager;
 
     private float timerMins = 0;
     private float timerSecs = 0;
+    private float cauldronCorruption = 0;
+    private bool isGameOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        uiManager = FindObjectOfType<UIManager>();
+        recipeManager = FindObjectOfType<RecipeManager>();
         timerMins = gameTimerInMinutes;
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateGameTimer();
+        if(!isGameOver)
+        {
+            UpdateGameTimer();
+            UpdateCauldronCorruption(Time.deltaTime * cauldronCorruptionMultiplier);
+        }
     }
 
     void UpdateGameTimer()
@@ -38,7 +48,7 @@ public class GameManager : MonoBehaviour
             {
                 timerMins = 0;
                 timerSecs = 0;
-                Debug.Log("Game Over!");
+                GameOver();
             }
         }
         else
@@ -47,5 +57,27 @@ public class GameManager : MonoBehaviour
         }
 
         uiManager.UpdateTimerUI((int)timerMins, (int)timerSecs);
+    }
+
+    void UpdateCauldronCorruption(float corruption)
+    {
+        if(cauldronCorruption + corruption >= maxCorruption)
+        {
+            cauldronCorruption = 0;
+            Debug.Log("Cauldron was corrupted! Loading next recipe...");
+            recipeManager.LoadNextRecipe();
+        }
+        else
+        {
+            cauldronCorruption += corruption;
+        }
+
+        uiManager.UpdateCauldronCorruptionUI(cauldronCorruption);
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game Over!");
+        isGameOver = true;
     }
 }

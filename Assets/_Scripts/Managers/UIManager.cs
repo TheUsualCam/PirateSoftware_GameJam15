@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private List<TextMeshProUGUI> requiredIngredientsText = new List<TextMeshProUGUI>();
+    [SerializeField] private Slider cauldronCorruptionSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -57,5 +58,10 @@ public class UIManager : MonoBehaviour
                 requiredIngredientsText[i].enabled = false;
             }
         }
+    }
+
+    public void UpdateCauldronCorruptionUI(float cauldronCorruption)
+    {
+        cauldronCorruptionSlider.value = cauldronCorruption;
     }
 }

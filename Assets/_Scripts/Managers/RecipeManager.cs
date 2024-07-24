@@ -8,6 +8,8 @@ public class RecipeManager : MonoBehaviour
 
     private IngredientSpawner ingredientSpawner;
     private UIManager uiManager;
+    private GameManager gameManager;
+
     private Recipe currentRecipe;
     private int recipeIndex = 0;
 
@@ -16,19 +18,23 @@ public class RecipeManager : MonoBehaviour
     {
         ingredientSpawner = FindObjectOfType<IngredientSpawner>();
         uiManager = FindObjectOfType<UIManager>();
+        gameManager = FindObjectOfType<GameManager>();
         LoadNextRecipe();
     }
 
     public void LoadNextRecipe()
     {
-        if(recipes.Count == 0)
+        if(recipeIndex >= recipes.Count)
         {
-            return;
+            Debug.Log("No more recipes!");
+            gameManager.GameOver();
         }
-
-        currentRecipe = recipes[recipeIndex];
-        recipeIndex++;
-        ingredientSpawner.SpawnRequiredIngredients(currentRecipe.requiredIngredients);
-        uiManager.UpdateRecipeUI(currentRecipe);
+        else
+        {
+            currentRecipe = recipes[recipeIndex];
+            recipeIndex++;
+            ingredientSpawner.SpawnRequiredIngredients(currentRecipe.requiredIngredients);
+            uiManager.UpdateRecipeUI(currentRecipe);
+        }
     }
 }
