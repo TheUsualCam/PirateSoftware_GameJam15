@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8226259862038127321}
   m_Layer: 0
   m_Name: TestIngredient2
-  m_TagString: Untagged
+  m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
