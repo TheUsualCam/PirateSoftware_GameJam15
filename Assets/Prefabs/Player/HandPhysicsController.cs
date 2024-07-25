@@ -1,84 +1,105 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class HandPhysicsController : MonoBehaviour
 {
-    private Animator _animator;
-    public bool isLeftHand;
     public bool _isGrabActive = false;
-    [SerializeField] private Transform grabbedObject;
-    [SerializeField] private Transform _hipsTransform;
-    [SerializeField] private Rigidbody _handRigidbody;
-    [SerializeField] private float grabForce = 4000f;
+    [SerializeField] private Transform _balancer;
+    
+    [Header("Searching")]
+    [SerializeField] private Transform _grabSearchOrigin;
     [SerializeField] private float grabRadius = 0.8f;
+    
+    [Header("Hand Forces")]
+    [SerializeField] private Rigidbody leftHandRigidbody;
+    [SerializeField] private Rigidbody rightHandRigidBody;
+    [SerializeField] private float grabForce = 10000f;
+    [SerializeField] private Vector3 grabVector;
+    [SerializeField] private float handsForwardsForce = 10000f;
+
+    [Header("Holding Object")]
+    [SerializeField] private Transform grabbedObject;
+    [SerializeField] private Rigidbody holdOrigin;
+    [SerializeField] private float dropForce = 10000f;
+
 
     private void OnEnable()
     {
-        if (isLeftHand)
-        {
-            GameInput.onLeftActionStart += StartGrab;
-            GameInput.onLeftActionEnd += EndGrab;
-        }
-        else
-        {
-            GameInput.onRightActionStart += StartGrab;
-            GameInput.onRightActionEnd += EndGrab;
-        }
+        GameInput.onLeftActionStart += StartGrab;
+        GameInput.onLeftActionEnd += EndGrab;
+        
     }
 
     private void OnDisable()
     {
-        GameInput.onRightActionStart -= StartGrab;
         GameInput.onLeftActionStart -= StartGrab;
-        GameInput.onRightActionEnd -= EndGrab;
         GameInput.onLeftActionEnd -= EndGrab;
-    }
-
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
         if (_isGrabActive)
         {
-            Vector3 targetDirection = Vector3.zero;
-            if (grabbedObject)
-            {
-                targetDirection = grabbedObject.position - _handRigidbody.transform.position;
-            }
-            else
-            {
-                targetDirection = _hipsTransform.forward;
-            }
-            _handRigidbody.AddForce(grabForce * Time.fixedDeltaTime * targetDirection.normalized, ForceMode.Force);
+            AddForceToHands(grabForce, grabVector, ForceMode.Force);
         }
+        else
+        {
+            AddForceToHands(handsForwardsForce, Vector3.forward, ForceMode.Force);
+        }
+    }
+
+    private void AddForceToHands(float force, Vector3 direction, ForceMode forceMode)
+    {
+        leftHandRigidbody.AddForce(force * Time.fixedDeltaTime * _balancer.TransformDirection(direction).normalized, forceMode);
+        Vector3 rightHandDirection = direction;
+        rightHandDirection.x *= -1f;
+        rightHandRigidBody.AddForce(force * Time.fixedDeltaTime * _balancer.TransformDirection(rightHandDirection).normalized, forceMode);
     }
 
     void StartGrab()
     {
         _isGrabActive = true;
-        Physics.SphereCast(new Ray(transform.position, Vector3.forward), grabRadius, out var hitInfo);
-        if (hitInfo.transform != null && hitInfo.transform.CompareTag("Grabable"))
+
+        Collider[] overlaps = Physics.OverlapSphere(_grabSearchOrigin.position, grabRadius);
+        foreach(Collider overlap in overlaps)
         {
-            grabbedObject = hitInfo.transform;
+            if (overlap.transform.CompareTag("Grabable"))
+            {
+                grabbedObject = overlap.transform;
+                //grabbedJoint = overlap.gameObject.AddComponent<ConfigurableJoint>();
+                grabbedObject.SetParent(holdOrigin.transform);
+                grabbedObject.localPosition = Vector3.zero;
+                grabbedObject.localRotation = Quaternion.identity;
+                overlap.attachedRigidbody.isKinematic = true;
+                
+                return;
+
+            }
         }
+        
     }
     
     void EndGrab()
     {
         _isGrabActive = false;
-        grabbedObject = null;
+        if (grabbedObject)
+        {
+            grabbedObject.SetParent(null, true);
+            Rigidbody grabbedRB = grabbedObject.gameObject.GetComponent<Rigidbody>();
+            grabbedRB.isKinematic = false;
+            grabbedRB.AddForce(dropForce * _balancer.TransformDirection(Vector3.forward).normalized, ForceMode.Impulse);
+            grabbedObject = null;
+        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(_grabSearchOrigin.position, grabRadius);
         
-        Gizmos.DrawWireSphere(_handRigidbody.position, grabRadius);
     }
 }
