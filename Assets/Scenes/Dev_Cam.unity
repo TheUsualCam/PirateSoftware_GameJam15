@@ -2164,8 +2164,8 @@ MonoBehaviour:
   ingredientSpawnPosition: {fileID: 1454104731}
   shadowPrefab: {fileID: 882806273}
   cauldronPosition: {fileID: 1469367258}
-  minSpawnRadius: 3
-  maxSpawnRadius: 10
+  minSpawnRadius: 1.5
+  maxSpawnRadius: 2
   shadowSpawnHeight: 5
   shadowsPerSpawn: 3
 --- !u!1 &1613570472

@@ -20,7 +20,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Random.InitState(System.DateTime.Now.Millisecond);
     }
 
     // Update is called once per frame
@@ -39,8 +39,6 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnShadows()
     {
-        Random.InitState(System.DateTime.Now.Millisecond);
-
         for (int i = 0; i < shadowsPerSpawn; i++)
         {
             shadowSpawnPosition = GetShadowSpawnPosition();
@@ -53,6 +51,6 @@ public class SpawnManager : MonoBehaviour
     {
         shadowSpawnPosition.x = cauldronPosition.position.x + minSpawnRadius;
         shadowSpawnPosition.z = cauldronPosition.position.x + minSpawnRadius;
-        return shadowSpawnPosition + Random.insideUnitSphere * maxSpawnRadius;
+        return shadowSpawnPosition + (Random.insideUnitSphere * maxSpawnRadius);
     }
 }
