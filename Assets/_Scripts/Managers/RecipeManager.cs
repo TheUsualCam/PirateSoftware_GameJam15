@@ -6,7 +6,7 @@ public class RecipeManager : MonoBehaviour
 {
     [SerializeField] private List<Recipe> recipes = new List<Recipe>();
 
-    private IngredientSpawner ingredientSpawner;
+    private SpawnManager spawnManager;
     private UIManager uiManager;
     private GameManager gameManager;
 
@@ -16,7 +16,7 @@ public class RecipeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ingredientSpawner = FindObjectOfType<IngredientSpawner>();
+        spawnManager = FindObjectOfType<SpawnManager>();
         uiManager = FindObjectOfType<UIManager>();
         gameManager = FindObjectOfType<GameManager>();
         LoadNextRecipe();
@@ -33,7 +33,8 @@ public class RecipeManager : MonoBehaviour
         {
             currentRecipe = recipes[recipeIndex];
             recipeIndex++;
-            ingredientSpawner.SpawnRequiredIngredients(currentRecipe.requiredIngredients);
+            spawnManager.SpawnRequiredIngredients(currentRecipe.requiredIngredients);
+            spawnManager.SpawnShadows();
             uiManager.UpdateRecipeUI(currentRecipe);
         }
     }
