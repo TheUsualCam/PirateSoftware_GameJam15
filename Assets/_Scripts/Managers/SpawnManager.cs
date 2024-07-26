@@ -42,15 +42,16 @@ public class SpawnManager : MonoBehaviour
             Vector3 shadowSpawnPosition = GetShadowSpawnPosition();
             shadowSpawnPosition.y = shadowSpawnHeight;
             
-            Instantiate(shadowPrefab, cauldronPosition.position + shadowSpawnPosition, Quaternion.identity);
+            Instantiate(shadowPrefab, shadowSpawnPosition, Quaternion.identity);
         }
     }
 
     private Vector3 GetShadowSpawnPosition()
     {
         float theta = Random.Range(0, 2 * Mathf.PI);
-        float randRadius = Mathf.Lerp(minSpawnRadius, maxSpawnRadius, Random.Range(0, 1f));
+        float randRadius = Mathf.Lerp(minSpawnRadius / 2f, maxSpawnRadius / 2f, Random.Range(0, 1f));
+        
         Vector3 pos = new Vector3(randRadius * Mathf.Cos(theta),0,randRadius * Mathf.Sin(theta));
-        return cauldronPosition.TransformPoint(pos);
+        return cauldronPosition.position + pos;
     }
 }
