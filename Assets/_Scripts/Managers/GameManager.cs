@@ -6,15 +6,12 @@ public class GameManager : MonoBehaviour
 {
     [Header("Game State Parameters")]
     [SerializeField] private float gameTimerInMinutes = 3.0f;
-    [SerializeField] private float cauldronCorruptionMultiplier = 1.0f;
-    [SerializeField] private float maxCorruption = 100.0f;
 
     private UIManager uiManager;
     private RecipeManager recipeManager;
 
     private float timerMins = 0;
     private float timerSecs = 0;
-    private float cauldronCorruption = 0;
     private bool isGameOver = false;
 
     // Start is called before the first frame update
