@@ -38,4 +38,9 @@ public class RecipeManager : MonoBehaviour
             uiManager.UpdateRecipeUI(currentRecipe);
         }
     }
+
+    public Recipe GetCurrentRecipe()
+    {
+        return currentRecipe;
+    }
 }
