@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -87,7 +88,7 @@ public class Station : MonoBehaviour
         Ingredient ingredient = processingIngredient._ingredient;
         ingredient.transform.SetParent(null);
         ingredient.gameObject.SetActive(true);
-        ingredient.ingredientState = targetState;
+        ingredient.ChangeState(targetState);
         
         ingredient.transform.SetLocalPositionAndRotation(finishedIngredientSpawnPoint.position, finishedIngredientSpawnPoint.rotation);
 
