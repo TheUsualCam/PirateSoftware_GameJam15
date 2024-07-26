@@ -91,7 +91,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 1
@@ -261,7 +261,7 @@ Transform:
   m_GameObject: {fileID: 7828772730011430777}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.889, z: 0.587}
+  m_LocalPosition: {x: 0.024, y: 0.647, z: 0.686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2062,7 +2062,7 @@ MonoBehaviour:
   _isGrabActive: 0
   _balancer: {fileID: 3376802055755402975}
   _grabSearchOrigin: {fileID: 8868839838745213330}
-  grabRadius: 1
+  grabRadius: 0.79
   leftHandRigidbody: {fileID: 4733362392791446013}
   rightHandRigidBody: {fileID: 2898252136403972474}
   grabForce: 20000
