@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4199819983085938630}
   - component: {fileID: 1440490662296035908}
   - component: {fileID: 7514416674093357694}
+  - component: {fileID: 6861810792894365349}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -80,6 +81,27 @@ MonoBehaviour:
   speed: 3
   rotationStep: 6
   animator: {fileID: 4351333566467654995}
+--- !u!65 &6861810792894365349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305817134260705307}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.58, y: 1.03, z: 0.53}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2752527703551404467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,6 +2071,11 @@ MonoBehaviour:
   grabbedObject: {fileID: 0}
   holdOrigin: {fileID: 8192786487806441363}
   dropForce: 1
+  throwWindUpDuration: 0
+  throwWindUpSpeed: 0
+  throwStrength: 0
+  throwDirection: {x: 0, y: 0, z: 0}
+  isThrowing: 0
 --- !u!1 &6540073328469693491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1082271958561512970, guid: 428f63debf93a734a97ce8d8c31cf36f, type: 3}

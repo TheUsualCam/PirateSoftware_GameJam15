@@ -42,7 +42,9 @@ public class SpawnManager : MonoBehaviour
             Vector3 shadowSpawnPosition = GetShadowSpawnPosition();
             shadowSpawnPosition.y = shadowSpawnHeight;
             
-            Instantiate(shadowPrefab, shadowSpawnPosition, Quaternion.identity);
+            // Create and set target to cauldron
+            Instantiate(shadowPrefab, shadowSpawnPosition, Quaternion.identity).GetComponent<HomingRigidbody>().target = cauldronPosition;
+            
         }
     }
 
