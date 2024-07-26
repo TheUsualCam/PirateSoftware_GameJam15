@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,17 @@ public class RecipeManager : MonoBehaviour
 
     private Recipe currentRecipe;
     private int recipeIndex = 0;
+
+    private void OnEnable()
+    {
+        Cauldron.OnCauldronCorrupted += LoadNextRecipe;
+    }
+
+    private void OnDisable()
+    {
+        Cauldron.OnCauldronCorrupted -= LoadNextRecipe;
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +43,7 @@ public class RecipeManager : MonoBehaviour
         }
         else
         {
+            Debug.Log($"Loading Recipe...");
             currentRecipe = recipes[recipeIndex];
             recipeIndex++;
             spawnManager.SpawnRequiredIngredients(currentRecipe.requiredIngredients);

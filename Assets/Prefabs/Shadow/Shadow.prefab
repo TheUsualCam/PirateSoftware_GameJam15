@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1882801284974325441}
   - component: {fileID: 5147971643492398524}
   - component: {fileID: 6267013583822988958}
-  - component: {fileID: 312754518752755489}
+  - component: {fileID: -7371777639353920904}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -136,7 +136,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &312754518752755489
+--- !u!114 &-7371777639353920904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9199073730878129294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4aa553d4c177c42a5f3bbcd4d1c1b6, type: 3}
+  m_Script: {fileID: 11500000, guid: d0e9673af47a7c6468f4821c6df159d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}

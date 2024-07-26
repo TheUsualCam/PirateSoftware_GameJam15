@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
         if(!isGameOver)
         {
             UpdateGameTimer();
-            UpdateCauldronCorruption(Time.deltaTime * cauldronCorruptionMultiplier);
         }
     }
 
@@ -57,22 +56,6 @@ public class GameManager : MonoBehaviour
         }
 
         uiManager.UpdateTimerUI((int)timerMins, (int)timerSecs);
-    }
-
-    void UpdateCauldronCorruption(float corruption)
-    {
-        if(cauldronCorruption + corruption >= maxCorruption)
-        {
-            cauldronCorruption = 0;
-            Debug.Log("Cauldron was corrupted! Loading next recipe...");
-            recipeManager.LoadNextRecipe();
-        }
-        else
-        {
-            cauldronCorruption += corruption;
-        }
-
-        uiManager.UpdateCauldronCorruptionUI(cauldronCorruption);
     }
 
     public void GameOver()
