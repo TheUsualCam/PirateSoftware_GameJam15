@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class HandPhysicsController : MonoBehaviour
@@ -25,13 +22,23 @@ public class HandPhysicsController : MonoBehaviour
     [SerializeField] private Transform grabbedObject;
     [SerializeField] private Rigidbody holdOrigin;
     [SerializeField] private float dropForce = 10000f;
+    [Header("Throwing")] 
+    [SerializeField] private float throwWindUpDuration;
+    // The Speed the hands should be moving before the object is thrown
+    [SerializeField] private float throwWindUpSpeed;
+    private float throwWindUpEndTime;
+    [SerializeField] private float throwStrength;
+    [SerializeField] private Vector3 throwDirection;
+    [SerializeField] private bool isThrowing;
+
 
 
     private void OnEnable()
     {
         GameInput.onLeftActionStart += StartGrab;
         GameInput.onLeftActionEnd += EndGrab;
-        
+        Station.OnIngredientProcessingStarted += CheckIfGrabbedIngredientHasProcessed;
+
     }
 
     private void OnDisable()
@@ -77,15 +84,53 @@ public class HandPhysicsController : MonoBehaviour
                 overlap.attachedRigidbody.isKinematic = true;
                 
                 return;
-
             }
         }
-        
     }
     
     void EndGrab()
     {
         _isGrabActive = false;
+        DropObject();
+    }
+    
+    private void CheckIfGrabbedIngredientHasProcessed(Ingredient obj)
+    {
+        if (obj.transform == grabbedObject)
+        {
+            EndGrab();
+            
+        }
+    }
+
+    public void StartThrow()
+    {
+        _isGrabActive = false;
+        isThrowing = true;
+    }
+
+    private IEnumerator EThrow()
+    {
+        while (holdOrigin.velocity.magnitude < throwWindUpSpeed)
+        {
+            Vector3 throwDirectionRelative = _balancer.TransformVector(throwDirection);
+            leftHandRigidbody.AddForce(Time.deltaTime * throwStrength * throwDirectionRelative, ForceMode.Impulse);
+            rightHandRigidBody.AddForce(Time.deltaTime * throwStrength * throwDirectionRelative, ForceMode.Impulse);
+
+            yield return null;
+        }
+        yield return null;
+    }
+
+    public void FinishThrow()
+    {
+        
+        isThrowing = false;
+        DropObject();
+    }
+
+    void DropObject()
+    {
         if (grabbedObject)
         {
             grabbedObject.SetParent(null, true);

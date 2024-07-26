@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2273008553173303495}
   - component: {fileID: 6417193487673882676}
   - component: {fileID: 7694266138949657646}
+  - component: {fileID: 6517174599208219236}
   m_Layer: 0
   m_Name: BlessingStation
   m_TagString: Untagged
@@ -32,7 +33,8 @@ Transform:
   m_LocalPosition: {x: -4.23, y: 0.91, z: -0.83203745}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1966863721194923837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &492322392480022743
@@ -118,3 +120,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd78190beb74a34ea85cd08f6136fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseDuration: 2
+  targetState: 1
+  finishedIngredientSpawnPoint: {fileID: 1966863721194923837}
+  throwStrengthRange: {x: 3, y: 6}
+  throwDirection: {x: 0, y: 1, z: 0.3}
+  throwXRange: {x: -0.4, y: 0.4}
+--- !u!65 &6517174599208219236
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723063092967942137}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.79, y: 2.84, z: 0.79}
+  m_Center: {x: 0, y: 0.405, z: 0}
+--- !u!1 &4563890741022254571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1966863721194923837}
+  m_Layer: 0
+  m_Name: SpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1966863721194923837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4563890741022254571}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.64800006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 631117311867303970}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
