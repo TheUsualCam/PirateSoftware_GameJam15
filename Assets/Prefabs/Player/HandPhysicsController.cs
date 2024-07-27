@@ -24,10 +24,12 @@ public class HandPhysicsController : MonoBehaviour
     [SerializeField] private float dropForce = 10000f;
     [Header("Throwing")] 
     [SerializeField] private float throwWindUpDuration;
+    [SerializeField] private float windUpStrength;
+    [SerializeField] private Vector3 windUpDirection;
     // The Speed the hands should be moving before the object is thrown
-    [SerializeField] private float throwWindUpSpeed;
-    private float throwWindUpEndTime;
+    [SerializeField] private float throwDuration;
     [SerializeField] private float throwStrength;
+    [SerializeField] private float thrownObjectImpulseStrength;
     [SerializeField] private Vector3 throwDirection;
     [SerializeField] private bool isThrowing;
 
@@ -37,12 +39,14 @@ public class HandPhysicsController : MonoBehaviour
     {
         GameInput.onLeftActionStart += StartGrab;
         GameInput.onLeftActionEnd += EndGrab;
+        GameInput.onRightActionStart += StartThrow;
         Station.OnIngredientProcessingStarted += CheckIfGrabbedIngredientHasProcessed;
 
     }
 
     private void OnDisable()
     {
+        GameInput.onRightActionStart -= StartThrow;
         GameInput.onLeftActionStart -= StartGrab;
         GameInput.onLeftActionEnd -= EndGrab;
     }
@@ -91,7 +95,7 @@ public class HandPhysicsController : MonoBehaviour
     void EndGrab()
     {
         _isGrabActive = false;
-        DropObject();
+        DropObject(dropForce * _balancer.TransformDirection(Vector3.forward).normalized);
     }
     
     private void CheckIfGrabbedIngredientHasProcessed(Ingredient obj)
@@ -99,44 +103,73 @@ public class HandPhysicsController : MonoBehaviour
         if (obj.transform == grabbedObject)
         {
             EndGrab();
-            
         }
     }
 
     public void StartThrow()
     {
+        if (!_isGrabActive || !grabbedObject)
+        {
+            return;
+        }
+        
         _isGrabActive = false;
         isThrowing = true;
+
+        StartCoroutine(EThrow());
     }
 
     private IEnumerator EThrow()
     {
-        while (holdOrigin.velocity.magnitude < throwWindUpSpeed)
-        {
-            Vector3 throwDirectionRelative = _balancer.TransformVector(throwDirection);
-            leftHandRigidbody.AddForce(Time.deltaTime * throwStrength * throwDirectionRelative, ForceMode.Impulse);
-            rightHandRigidBody.AddForce(Time.deltaTime * throwStrength * throwDirectionRelative, ForceMode.Impulse);
+        // Wind Up
 
+        Vector3 throwDirectionRelative;
+        float t = 0;
+        
+        while (isThrowing && t < throwWindUpDuration)
+        {
+            throwDirectionRelative = transform.TransformDirection(windUpDirection);
+            
+            leftHandRigidbody.AddForce(Time.deltaTime * windUpStrength * throwDirectionRelative, ForceMode.Force);
+            rightHandRigidBody.AddForce(Time.deltaTime * windUpStrength * throwDirectionRelative, ForceMode.Force);
+            
+            t += Time.deltaTime;
             yield return null;
         }
+
+        // Release and Launch
+        t = 0f;
+        while (isThrowing && t < throwDuration)
+        {
+            throwDirectionRelative = _balancer.transform.TransformDirection(throwDirection);
+            
+            leftHandRigidbody.AddForce(Time.deltaTime * throwStrength * throwDirectionRelative, ForceMode.Force);
+            rightHandRigidBody.AddForce(Time.deltaTime * throwStrength * throwDirectionRelative, ForceMode.Force);
+
+            t += Time.deltaTime;
+            
+            yield return null;
+        }
+
+        FinishThrow();
+        
         yield return null;
     }
 
     public void FinishThrow()
     {
-        
         isThrowing = false;
-        DropObject();
+        DropObject(_balancer.transform.TransformDirection(throwDirection) * thrownObjectImpulseStrength);
     }
 
-    void DropObject()
+    void DropObject(Vector3 force)
     {
         if (grabbedObject)
         {
             grabbedObject.SetParent(null, true);
             Rigidbody grabbedRB = grabbedObject.gameObject.GetComponent<Rigidbody>();
             grabbedRB.isKinematic = false;
-            grabbedRB.AddForce(dropForce * _balancer.TransformDirection(Vector3.forward).normalized, ForceMode.Impulse);
+            grabbedRB.AddForce(force, ForceMode.Impulse);
             grabbedObject = null;
         }
     }
