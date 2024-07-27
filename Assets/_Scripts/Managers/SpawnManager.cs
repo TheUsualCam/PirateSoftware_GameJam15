@@ -26,9 +26,12 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnRequiredIngredients(List<RequiredIngredient> requiredIngredients)
     {
-        foreach(Ingredient ingredient in spawnedIngredients)
+        for (int i = spawnedIngredients.Count - 1; i > 0; i--)
         {
-            Destroy(ingredient.gameObject);
+            if (spawnedIngredients[i])
+            {
+                Destroy(spawnedIngredients[i].gameObject);
+            }
         }
 
         spawnedIngredients.Clear();
