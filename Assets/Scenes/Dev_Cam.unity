@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103d1ed702df5ab4d83dded6a86b5b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTimerInMinutes: 11
+  gameTimerInMinutes: 1
 --- !u!1 &342172703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2263,10 @@ PrefabInstance:
     - target: {fileID: 3890510445828860756, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
       propertyPath: m_Name
       value: Cauldron
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566142435961795345, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
+      propertyPath: corruptionPerBadIngredient
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7765885775908355415, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
       propertyPath: m_AnchorMax.x

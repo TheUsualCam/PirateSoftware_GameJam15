@@ -10,6 +10,7 @@ public class Cauldron : MonoBehaviour
     [SerializeField] private float currentCorruption = 0f;
     
     [SerializeField]private float corruptionPerShadow = .05f;
+    [SerializeField] private float corruptionPerBadIngredient = .05f;
     [SerializeField]private float corruptionPerSecond = 0.01f;
     
     [SerializeField]public float corruptionGraceCooldown = 5f;
@@ -59,7 +60,7 @@ public class Cauldron : MonoBehaviour
         Debug.Log($"Cauldron Corrupted");
     }
     
-    void AddCorruption(float addition)
+    public void AddCorruption(float addition)
     {
         currentCorruption += addition;
         if (currentCorruption >= 1.0f)
@@ -68,5 +69,10 @@ public class Cauldron : MonoBehaviour
         }
 
         corruptionSlider.value = Mathf.Clamp01(currentCorruption);
+    }
+
+    public float GetCorruptionPerBadIngredient()
+    {
+        return corruptionPerBadIngredient;
     }
 }

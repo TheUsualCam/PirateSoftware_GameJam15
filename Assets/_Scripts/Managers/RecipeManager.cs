@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RecipeManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class RecipeManager : MonoBehaviour
     private SpawnManager spawnManager;
     private UIManager uiManager;
     private GameManager gameManager;
+    private Cauldron cauldron;
 
     private Recipe currentRecipe;
     private RequiredIngredient ingredientModifierStruct;
@@ -33,6 +35,7 @@ public class RecipeManager : MonoBehaviour
         spawnManager = FindObjectOfType<SpawnManager>();
         uiManager = FindObjectOfType<UIManager>();
         gameManager = FindObjectOfType<GameManager>();
+        cauldron = FindObjectOfType<Cauldron>();
 
         for(int i = 0; i < recipes.Count; i++)
         {
@@ -66,6 +69,10 @@ public class RecipeManager : MonoBehaviour
                 ingredientModifierStruct.isInCauldron = true;
                 currentRecipe.requiredIngredients[i] = ingredientModifierStruct;
                 break;
+            }
+            else if(i == currentRecipe.requiredIngredients.Count - 1)
+            {
+                cauldron.AddCorruption(cauldron.GetCorruptionPerBadIngredient());
             }
         }
 
