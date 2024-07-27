@@ -17,8 +17,17 @@ public class Cauldron : MonoBehaviour
     
     [SerializeField]private Slider corruptionSlider = null;
 
+    private RecipeManager recipeManager;
+    private SpawnManager spawnManager;
+
     // Events
     public static event Action OnCauldronCorrupted;
+
+    private void Start()
+    {
+        recipeManager = FindObjectOfType<RecipeManager>();
+        spawnManager = FindObjectOfType<SpawnManager>();
+    }
 
     void Update()
     {
@@ -44,8 +53,8 @@ public class Cauldron : MonoBehaviour
     {
         currentCorruption = 0.0f;
         corruptionGraceTimeEnd = corruptionGraceCooldown + Time.time;
-        // Spawn Shadows
-        // Generate a new recipe + Ingredients
+        spawnManager.SpawnShadows();
+        recipeManager.LoadNextRecipe();
         OnCauldronCorrupted?.Invoke();
         Debug.Log($"Cauldron Corrupted");
     }

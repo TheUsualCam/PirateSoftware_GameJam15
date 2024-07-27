@@ -1578,6 +1578,7 @@ MonoBehaviour:
   recipes:
   - {fileID: 11400000, guid: 4f7ae45e1d895144892fd7ab6bc3292f, type: 2}
   - {fileID: 11400000, guid: c43397e665c177942b7b9bc60d166999, type: 2}
+  - {fileID: 11400000, guid: 59418fe6ada840749897da05869b74c9, type: 2}
 --- !u!4 &1435820151
 Transform:
   m_ObjectHideFlags: 0
@@ -2263,6 +2264,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cauldron
       objectReference: {fileID: 0}
+    - target: {fileID: 7765885775908355415, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765885775908355415, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2353,13 +2362,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874172931}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.35461283, y: 7, z: 5}
+  m_LocalRotation: {x: 0.3922529, y: -0, z: -0, w: 0.9198575}
+  m_LocalPosition: {x: -0.35461283, y: 5.41, z: -1.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 46.19, y: 0, z: 0}
 --- !u!1 &1877296273
 GameObject:
   m_ObjectHideFlags: 0

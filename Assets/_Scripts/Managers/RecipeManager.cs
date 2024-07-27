@@ -6,13 +6,13 @@ using UnityEngine;
 public class RecipeManager : MonoBehaviour
 {
     [SerializeField] private List<Recipe> recipes = new List<Recipe>();
+    private List<Recipe> completedRecipes = new List<Recipe>();
 
     private SpawnManager spawnManager;
     private UIManager uiManager;
     private GameManager gameManager;
 
     private Recipe currentRecipe;
-    private int recipeIndex = 0;
     private RequiredIngredient ingredientModifierStruct;
 
     private void OnEnable()
@@ -29,6 +29,7 @@ public class RecipeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        completedRecipes.Clear();
         spawnManager = FindObjectOfType<SpawnManager>();
         uiManager = FindObjectOfType<UIManager>();
         gameManager = FindObjectOfType<GameManager>();
@@ -48,20 +49,10 @@ public class RecipeManager : MonoBehaviour
 
     public void LoadNextRecipe()
     {
-        if(recipeIndex >= recipes.Count)
-        {
-            Debug.Log("No more recipes!");
-            gameManager.GameOver();
-        }
-        else
-        {
-            Debug.Log($"Loading Recipe...");
-            currentRecipe = recipes[recipeIndex];
-            recipeIndex++;
-            spawnManager.SpawnRequiredIngredients(currentRecipe.requiredIngredients);
-            spawnManager.SpawnShadows();
-            uiManager.UpdateRecipeUI(currentRecipe);
-        }
+        Debug.Log($"Loading Recipe...");
+        currentRecipe = recipes[UnityEngine.Random.Range(0, recipes.Count)];
+        spawnManager.SpawnRequiredIngredients(currentRecipe.requiredIngredients);
+        uiManager.UpdateRecipeUI(currentRecipe);
     }
 
     public void UpdateCurrentRecipe(Ingredient ingredient)
@@ -79,10 +70,26 @@ public class RecipeManager : MonoBehaviour
         }
 
         uiManager.UpdateRecipeUI(currentRecipe);
+
+        for(int i = 0; i < currentRecipe.requiredIngredients.Count; i++)
+        {
+            if (!currentRecipe.requiredIngredients[i].isInCauldron)
+            {
+                return;
+            }
+        }
+
+        completedRecipes.Add(currentRecipe);
+        LoadNextRecipe();
     }
 
     public Recipe GetCurrentRecipe()
     {
         return currentRecipe;
+    }
+
+    public int GetNumberOfCompletedRecipes()
+    {
+        return completedRecipes.Count;
     }
 }

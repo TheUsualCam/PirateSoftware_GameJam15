@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d33b506bfabc6948a2fb15d7909c38d, type: 3}
-  m_Name: TestRecipe2
+  m_Name: TestRecipe3
   m_EditorClassIdentifier: 
   requiredIngredients:
-  - ingredient: {fileID: 6085439677919548309, guid: 97f591acfb0e58d419bfcfaa99ff5bfd, type: 3}
-    method: 2
+  - ingredient: {fileID: 6085439677919548309, guid: fe25b25e3478128439b93486aaf8c42f, type: 3}
+    method: 1
     isInCauldron: 0
   - ingredient: {fileID: 6085439677919548309, guid: d364d3f1b0b8f5547af2ce3e251ce532, type: 3}
-    method: 0
+    method: 2
+    isInCauldron: 0
+  - ingredient: {fileID: 6085439677919548309, guid: b3bc4be664551cb4b80d61f2d90b7784, type: 3}
+    method: 1
     isInCauldron: 0
   - ingredient: {fileID: 6085439677919548309, guid: b3bc4be664551cb4b80d61f2d90b7784, type: 3}
     method: 1
