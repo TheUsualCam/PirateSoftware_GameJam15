@@ -13,6 +13,7 @@ public class RecipeManager : MonoBehaviour
 
     private Recipe currentRecipe;
     private int recipeIndex = 0;
+    private RequiredIngredient ingredientModifierStruct;
 
     private void OnEnable()
     {
@@ -31,6 +32,17 @@ public class RecipeManager : MonoBehaviour
         spawnManager = FindObjectOfType<SpawnManager>();
         uiManager = FindObjectOfType<UIManager>();
         gameManager = FindObjectOfType<GameManager>();
+
+        for(int i = 0; i < recipes.Count; i++)
+        {
+            for(int j = 0; j < recipes[i].requiredIngredients.Count; j++)
+            {
+                ingredientModifierStruct = recipes[i].requiredIngredients[j];
+                ingredientModifierStruct.isInCauldron = false;
+                recipes[i].requiredIngredients[j] = ingredientModifierStruct;
+            }
+        }
+
         LoadNextRecipe();
     }
 
@@ -50,6 +62,23 @@ public class RecipeManager : MonoBehaviour
             spawnManager.SpawnShadows();
             uiManager.UpdateRecipeUI(currentRecipe);
         }
+    }
+
+    public void UpdateCurrentRecipe(Ingredient ingredient)
+    {
+        for(int i = 0; i < currentRecipe.requiredIngredients.Count; i++)
+        { 
+            ingredientModifierStruct = currentRecipe.requiredIngredients[i];
+
+            if(ingredient.ingredientType == currentRecipe.requiredIngredients[i].ingredient.ingredientType && ingredient.ingredientState.ToString() == currentRecipe.requiredIngredients[i].method.ToString())
+            {
+                ingredientModifierStruct.isInCauldron = true;
+                currentRecipe.requiredIngredients[i] = ingredientModifierStruct;
+                break;
+            }
+        }
+
+        uiManager.UpdateRecipeUI(currentRecipe);
     }
 
     public Recipe GetCurrentRecipe()

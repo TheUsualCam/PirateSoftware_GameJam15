@@ -21,4 +21,5 @@ public struct RequiredIngredient
 {
     public Ingredient ingredient;
     public PrepMethod method;
+    public bool isInCauldron;
 }

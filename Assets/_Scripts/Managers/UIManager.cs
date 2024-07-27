@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < requiredIngredientsText.Count; i++)
         {
-            if (i < recipe.requiredIngredients.Count)
+            if (i < recipe.requiredIngredients.Count && !recipe.requiredIngredients[i].isInCauldron)
             {
                 requiredIngredientsText[i].enabled = true;
                 requiredIngredientsText[i].text = recipe.requiredIngredients[i].ingredient.ingredientName + ", " + recipe.requiredIngredients[i].method;
