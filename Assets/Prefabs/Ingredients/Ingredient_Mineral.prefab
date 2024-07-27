@@ -14,7 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104454583771185668, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: ingredientName
-      value: Mineral
+      value: Topaz
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104454583771185668, guid: 46146a45cd117cd488967ab409eab775, type: 3}
+      propertyPath: ingredientType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5248294792018774323, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_Materials.Array.data[0]

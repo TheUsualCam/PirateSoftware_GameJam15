@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
             {
                 timerMins = 0;
                 timerSecs = 0;
+                uiManager.UpdateTimerUI((int)timerMins, (int)timerSecs);
                 GameOver();
             }
         }
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Game Over!");
+        Debug.Log("Game Over!\nYou completed " + recipeManager.GetNumberOfCompletedRecipes() + " recipes!");
         isGameOver = true;
     }
 }

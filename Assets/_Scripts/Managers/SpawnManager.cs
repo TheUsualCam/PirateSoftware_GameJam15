@@ -15,24 +15,35 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float shadowSpawnHeight = 5.0f;
     [SerializeField] int shadowsPerSpawn = 3;
 
+    private List<Ingredient> spawnedIngredients = new List<Ingredient>();
+    private Ingredient newIngredient;
+
     // Start is called before the first frame update
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void SpawnRequiredIngredients(List<RequiredIngredient> requiredIngredients)
     {
+        foreach(Ingredient ingredient in spawnedIngredients)
+        {
+            Destroy(ingredient.gameObject);
+        }
+
+        spawnedIngredients.Clear();
+
         for (int i = 0; i < requiredIngredients.Count; i++)
         {
-            Instantiate(requiredIngredients[i].ingredient, ingredientSpawnPosition.position, Quaternion.identity);
+            newIngredient = Instantiate(requiredIngredients[i].ingredient, ingredientSpawnPosition.position, Quaternion.identity);
+            spawnedIngredients.Add(newIngredient);
         }
+    }
+
+    public void RespawnIngredient(Ingredient ingredient)
+    {
+        newIngredient = Instantiate(ingredient, ingredientSpawnPosition.position, Quaternion.identity);
+        spawnedIngredients.Add(newIngredient);
     }
 
     public void SpawnShadows()
