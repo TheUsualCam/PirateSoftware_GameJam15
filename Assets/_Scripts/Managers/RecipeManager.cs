@@ -73,6 +73,7 @@ public class RecipeManager : MonoBehaviour
             else if(i == currentRecipe.requiredIngredients.Count - 1)
             {
                 cauldron.AddCorruption(cauldron.GetCorruptionPerBadIngredient());
+                spawnManager.RespawnIngredient(ingredient);
             }
         }
 

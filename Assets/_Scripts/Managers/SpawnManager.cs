@@ -40,6 +40,12 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    public void RespawnIngredient(Ingredient ingredient)
+    {
+        newIngredient = Instantiate(ingredient, ingredientSpawnPosition.position, Quaternion.identity);
+        spawnedIngredients.Add(newIngredient);
+    }
+
     public void SpawnShadows()
     {
         for (int i = 0; i < shadowsPerSpawn; i++)
