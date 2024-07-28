@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4572815681469674075}
   - component: {fileID: 3599622868795758242}
   - component: {fileID: 8606551999517795772}
-  - component: {fileID: 7164963838964303367}
+  - component: {fileID: 3411404981691448801}
   m_Layer: 0
   m_Name: DryingStation
   m_TagString: Untagged
@@ -157,10 +157,10 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 130, y: 100, z: 100}
-  m_Center: {x: 0, y: -20, z: 0}
---- !u!64 &7164963838964303367
-MeshCollider:
+  m_Size: {x: 106.8, y: 72.6, z: 68.86}
+  m_Center: {x: 0, y: 25.1, z: 0}
+--- !u!65 &3411404981691448801
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -177,10 +177,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6627386394830989706, guid: b21f4b9163cec5f41a4e49d8f7924b8e, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 126.666664, y: 60.7, z: 75.95369}
+  m_Center: {x: 0, y: -39.6, z: 0}
 --- !u!1001 &4807323842600046572
 PrefabInstance:
   m_ObjectHideFlags: 0

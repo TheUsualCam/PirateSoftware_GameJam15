@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 631117311867303970}
   - component: {fileID: 492322392480022743}
   - component: {fileID: 2273008553173303495}
-  - component: {fileID: 6417193487673882676}
   - component: {fileID: 7694266138949657646}
-  - component: {fileID: 6517174599208219236}
+  - component: {fileID: 1874613085391903835}
+  - component: {fileID: 1084482767934664522}
   m_Layer: 0
   m_Name: BlessingStation
   m_TagString: Untagged
@@ -89,27 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6417193487673882676
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2723063092967942137}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7694266138949657646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +107,28 @@ MonoBehaviour:
   throwStrengthRange: {x: 3, y: 6}
   throwDirection: {x: 0, y: 1, z: 0.3}
   throwXRange: {x: -0.4, y: 0.4}
---- !u!65 &6517174599208219236
+--- !u!65 &1874613085391903835
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723063092967942137}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 126.666664, y: 60.7, z: 75.95369}
+  m_Center: {x: 0, y: -17.3, z: 0}
+--- !u!65 &1084482767934664522
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,8 +147,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.79, y: 2.84, z: 0.79}
-  m_Center: {x: 0, y: 0.405, z: 0}
+  m_Size: {x: 115.1, y: 60.7, z: 68.4}
+  m_Center: {x: 0, y: 44, z: 0}
 --- !u!1 &4563890741022254571
 GameObject:
   m_ObjectHideFlags: 0
