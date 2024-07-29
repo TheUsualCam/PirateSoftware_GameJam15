@@ -88,6 +88,10 @@ public class Station : MonoBehaviour
                 float timeRemaining = heldIngredients[0].finishTime - Time.time;
                 stationSlider.value = timeRemaining / baseDuration;
             }
+            else
+            {
+                stationSlider.value = 0.0f;
+            }
         }
     }
 
