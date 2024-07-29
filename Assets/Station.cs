@@ -86,13 +86,25 @@ public class Station : MonoBehaviour
             if(heldIngredients.Count > 0)
             {
                 float timeRemaining = heldIngredients[0].finishTime - Time.time;
-                stationSlider.value = timeRemaining / baseDuration;
+                
+                stationSlider.value = 1 - (timeRemaining / baseDuration);
             }
             else
             {
-                stationSlider.value = 0.0f;
+                HideUiSlider();
             }
+            
         }
+    }
+
+    private void HideUiSlider()
+    {
+        if (stationSlider.gameObject.activeSelf)
+        {
+            stationSlider.gameObject.SetActive(false);
+            stationSlider.value = 0.0f;
+        }
+            
     }
 
     private void CheckForReadyIngredients()
@@ -101,7 +113,7 @@ public class Station : MonoBehaviour
 
         foreach (ProcessingIngredient ingredient in heldIngredients)
         {
-            if (ingredient._ingredient.transform != null)
+            if (ingredient._ingredient.transform == null)
             {
                 IngredientsToRemove.Add(ingredient);
                 continue;
