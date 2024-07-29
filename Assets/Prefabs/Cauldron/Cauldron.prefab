@@ -5013,7 +5013,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -9807,6 +9807,8 @@ GameObject:
   - component: {fileID: 3867278414058854068}
   - component: {fileID: 5876132287794937194}
   - component: {fileID: 6566142435961795345}
+  - component: {fileID: 1454099762777830236}
+  - component: {fileID: 6513487523573071970}
   m_Layer: 0
   m_Name: Cauldron
   m_TagString: Untagged
@@ -9922,9 +9924,45 @@ MonoBehaviour:
   currentCorruption: 0
   corruptionPerShadow: 0.1
   corruptionPerBadIngredient: 0.05
-  corruptionPerSecond: 0.02
+  corruptionPerSecond: 0.01
   corruptionGraceCooldown: 5
   corruptionSlider: {fileID: 2894754766262363818}
+--- !u!114 &1454099762777830236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3890510445828860756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535b17ccc4efdc64eaf1e543844d4ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 9199073730878129294, guid: 00374010f5dca274bb7ddc9cd00d8473, type: 3}
+  spawnPos: {fileID: 8792117857065501361}
+  spawnImpulseForce: 6
+  spawnImpulsePower: {x: 0.4, y: 1, z: 0.4}
+  numberPerSpawn: 3
+  delayBetweenSpawns: 0.2
+--- !u!114 &6513487523573071970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3890510445828860756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535b17ccc4efdc64eaf1e543844d4ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 9199073730878129294, guid: 15c8273591d5642429b30b3e46932b76, type: 3}
+  spawnPos: {fileID: 8792117857065501361}
+  spawnImpulseForce: 6
+  spawnImpulsePower: {x: 0.4, y: 1, z: 0.4}
+  numberPerSpawn: 1
+  delayBetweenSpawns: 0.2
 --- !u!1 &5010560328575267341
 GameObject:
   m_ObjectHideFlags: 0
@@ -10042,7 +10080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8792117857065501361}
   m_Layer: 0
-  m_Name: ShadowSpawnPoint
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10057,7 +10095,7 @@ Transform:
   m_GameObject: {fileID: 6306941559846047093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 25.43, z: 0}
+  m_LocalPosition: {x: -10.3, y: 1.3, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

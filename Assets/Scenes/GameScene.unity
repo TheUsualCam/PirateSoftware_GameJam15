@@ -1457,6 +1457,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1454099762777830236, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
+      propertyPath: delayBetweenSpawns
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2568216055686446518, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.42874765
@@ -1501,13 +1505,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cauldron
       objectReference: {fileID: 0}
-    - target: {fileID: 4910118300513033319, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
-      propertyPath: prewarm
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6566142435961795345, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
-      propertyPath: corruptionPerSecond
-      value: 0.01
+    - target: {fileID: 6513487523573071970, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
+      propertyPath: delayBetweenSpawns
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7765885775908355415, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2880,12 +2880,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientSpawnPosition: {fileID: 398330470}
-  shadowPrefab: {fileID: 9199073730878129294, guid: 00374010f5dca274bb7ddc9cd00d8473, type: 3}
-  cauldronPosition: {fileID: 957062209}
-  minSpawnRadius: 5
-  maxSpawnRadius: 9
-  shadowSpawnHeight: 1.5
-  shadowsPerSpawn: 3
 --- !u!4 &1694396070
 Transform:
   m_ObjectHideFlags: 0

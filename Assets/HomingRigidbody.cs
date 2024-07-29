@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HomingRigidbody : MonoBehaviour
 {
+    protected bool homingEnabled = false;
+    
     public Transform target = null;
 
     public float speedBase = 1;
@@ -14,9 +16,9 @@ public class HomingRigidbody : MonoBehaviour
     
     
     // Update is called once per frame
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-        if (!target)
+        if (!target || !homingEnabled)
         {
             return;
         }
@@ -27,7 +29,9 @@ public class HomingRigidbody : MonoBehaviour
         }
         else
         {
-            rigidbody.AddForce(speedBase * Time.fixedDeltaTime * (target.position - transform.position).normalized, ForceMode.Force);
+            Vector3 directionToTarget = target.position - transform.position;
+            directionToTarget.y = 0f;
+            rigidbody.AddForce(speedBase * Time.fixedDeltaTime * directionToTarget.normalized, ForceMode.Force);
         }
     }
 

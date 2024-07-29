@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShadowCreature : HomingRigidbody
 {
+    public float floatingHeight;
+    
     protected override void ReachedTarget()
     {
         Cauldron cauldron = target.GetComponent<Cauldron>();
@@ -13,4 +15,16 @@ public class ShadowCreature : HomingRigidbody
             Destroy(gameObject);
         }
     }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (transform.position.y <= floatingHeight)
+        {
+            rigidbody.useGravity = false;
+            rigidbody.velocity = Vector3.zero;
+            homingEnabled = true;
+        }
+    }
+
 }
