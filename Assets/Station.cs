@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Station : MonoBehaviour
@@ -25,7 +26,9 @@ public class Station : MonoBehaviour
     
     [Tooltip("How base time (seconds) it takes for this station to complete.")]
     [SerializeField] private float baseDuration = 0.5f;
+    [SerializeField] private Slider stationSlider = null;
 
+    private float processingDuration = 0;
     public List<ProcessingIngredient> heldIngredients = new List<ProcessingIngredient>();
     
     public Ingredient.IngredientState targetState;
@@ -54,6 +57,9 @@ public class Station : MonoBehaviour
         // Cache the item
         ProcessingIngredient newItem = new ProcessingIngredient(ingredient, Time.time + baseDuration, ingredient.GetComponent<Rigidbody>());
         heldIngredients.Add(newItem);
+        processingDuration = newItem.finishTime - Time.time;
+        stationSlider.gameObject.SetActive(true);
+        stationSlider.value = 0;
         
         OnIngredientProcessingStarted?.Invoke(ingredient);
         
@@ -93,6 +99,13 @@ public class Station : MonoBehaviour
         }
 
         IngredientsToRelease.Clear();
+
+        if(heldIngredients.Count > 0)
+        {
+            //Random arbitrary division by 8 to get accurate slider representation, tried
+            //multiple different combinations but couldn't get it to work as well as this does
+            stationSlider.value += Mathf.Clamp01(heldIngredients[0].finishTime - Time.time) / 8;
+        }
     }
 
     private void ProcessParticleSystems()
@@ -130,7 +143,7 @@ public class Station : MonoBehaviour
 
         throwDirection.x = Random.Range(throwXRange.x, throwXRange.y);
         processingIngredient._rigidbody.AddForce(finishedIngredientSpawnPoint.TransformDirection(throwDirection) * Random.Range(throwStrengthRange.x, throwStrengthRange.y), ForceMode.Impulse);
+        stationSlider.value = 0;
+        stationSlider.gameObject.SetActive(false);
     }
-    
-    
 }
