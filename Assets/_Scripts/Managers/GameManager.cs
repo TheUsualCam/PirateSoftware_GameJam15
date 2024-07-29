@@ -58,7 +58,12 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Game Over!\nYou completed " + recipeManager.GetNumberOfCompletedRecipes() + " recipes!");
         isGameOver = true;
+        uiManager.GameOverUI(recipeManager.GetNumberOfCompletedRecipes());
+    }
+
+    public bool IsGameOver()
+    {
+        return isGameOver;
     }
 }

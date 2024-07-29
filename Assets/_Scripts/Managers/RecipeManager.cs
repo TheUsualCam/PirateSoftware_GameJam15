@@ -7,7 +7,7 @@ using UnityEngine;
 public class RecipeManager : MonoBehaviour
 {
     [SerializeField] private List<Recipe> recipes = new List<Recipe>();
-    private List<Recipe> completedRecipes = new List<Recipe>();
+    private int completedRecipes = 0;
 
     private SpawnManager spawnManager;
     private UIManager uiManager;
@@ -31,7 +31,6 @@ public class RecipeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        completedRecipes.Clear();
         spawnManager = FindObjectOfType<SpawnManager>();
         uiManager = FindObjectOfType<UIManager>();
         gameManager = FindObjectOfType<GameManager>();
@@ -52,7 +51,6 @@ public class RecipeManager : MonoBehaviour
 
     public void LoadNextRecipe()
     {
-        Debug.Log($"Loading Recipe...");
         currentRecipe = recipes[UnityEngine.Random.Range(0, recipes.Count)];
 
         for(int i = 0; i < currentRecipe.requiredIngredients.Count; i++)
@@ -95,7 +93,7 @@ public class RecipeManager : MonoBehaviour
             }
         }
 
-        completedRecipes.Add(currentRecipe);
+        completedRecipes++;
         cauldron.ResetCorruption();
         uiManager.DisplayNotificationText(true);
         LoadNextRecipe();
@@ -108,6 +106,6 @@ public class RecipeManager : MonoBehaviour
 
     public int GetNumberOfCompletedRecipes()
     {
-        return completedRecipes.Count;
+        return completedRecipes;
     }
 }
