@@ -97,6 +97,7 @@ public class RecipeManager : MonoBehaviour
 
         completedRecipes.Add(currentRecipe);
         cauldron.ResetCorruption();
+        uiManager.DisplayRecipeCompleteText();
         LoadNextRecipe();
     }
 

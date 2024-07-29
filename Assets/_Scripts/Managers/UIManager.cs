@@ -9,13 +9,14 @@ using System;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI recipeCompleteText;
+    [SerializeField] private float textDisplayDuration = 2.0f;
     [SerializeField] private List<TextMeshProUGUI> requiredIngredientsText = new List<TextMeshProUGUI>();
     [SerializeField] private Slider cauldronCorruptionSlider;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        recipeCompleteText.enabled = false;
     }
 
     public void UpdateTimerUI(int mins, int secs)
@@ -63,5 +64,17 @@ public class UIManager : MonoBehaviour
     public void UpdateCauldronCorruptionUI(float cauldronCorruption)
     {
         cauldronCorruptionSlider.value = cauldronCorruption;
+    }
+
+    public void DisplayRecipeCompleteText()
+    {
+        recipeCompleteText.enabled = true;
+        StartCoroutine(DeactivateRecipeCompleteText());
+    }
+
+    IEnumerator DeactivateRecipeCompleteText()
+    {
+        yield return new WaitForSeconds(textDisplayDuration);
+        recipeCompleteText.enabled = false;
     }
 }
