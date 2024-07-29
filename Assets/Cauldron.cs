@@ -20,6 +20,7 @@ public class Cauldron : MonoBehaviour
 
     private RecipeManager recipeManager;
     private SpawnManager spawnManager;
+    private UIManager uiManager;
 
     // Events
     public static event Action OnCauldronCorrupted;
@@ -28,6 +29,7 @@ public class Cauldron : MonoBehaviour
     {
         recipeManager = FindObjectOfType<RecipeManager>();
         spawnManager = FindObjectOfType<SpawnManager>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     void Update()
@@ -56,8 +58,8 @@ public class Cauldron : MonoBehaviour
         corruptionGraceTimeEnd = corruptionGraceCooldown + Time.time;
         spawnManager.SpawnShadows();
         recipeManager.LoadNextRecipe();
+        uiManager.DisplayNotificationText(false);
         OnCauldronCorrupted?.Invoke();
-        Debug.Log($"Cauldron Corrupted");
     }
 
     public void ResetCorruption()
