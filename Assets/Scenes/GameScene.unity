@@ -15,16 +15,16 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.4516287, g: 0.47803155, b: 0.4811321, a: 1}
+  m_FogColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 20
   m_LinearFogEnd: 25.57
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -367,6 +367,10 @@ PrefabInstance:
     - target: {fileID: 2837366472891270938, guid: 4dde09936e7a633449eaf68f8b49ef48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028474066182089631, guid: 4dde09936e7a633449eaf68f8b49ef48, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8963480332552354015, guid: 4dde09936e7a633449eaf68f8b49ef48, type: 3}
       propertyPath: m_LocalPosition.x
@@ -783,6 +787,10 @@ PrefabInstance:
     - target: {fileID: 659119818429470953, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
       propertyPath: m_LocalPosition.y
       value: 131.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031866826882912031, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2568216055686446518, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7271,8 +7279,8 @@ Camera:
   m_GameObject: {fileID: 1994239461}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -7515,6 +7523,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca2663b174da7d043b7642608ded3672, type: 3}
+--- !u!1001 &2224834211372361089
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3994294855397883139, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.1936064
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994294855397883139, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.469286
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994294855397883139, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.406536
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994294855397883139, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994294855397883139, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994294855397883139, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994294855397883139, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994294855397883139, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994294855397883139, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994294855397883139, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568185802198527669, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
+      propertyPath: m_Name
+      value: GameMusic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e424da23357312b46b76aa0be3a3be56, type: 3}
 --- !u!1001 &2258095270252885039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7566,6 +7631,10 @@ PrefabInstance:
     - target: {fileID: 2723063092967942137, guid: 85049564cabaefb4fab01bc6c0ea4185, type: 3}
       propertyPath: m_Name
       value: BlessingStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266475319449291321, guid: 85049564cabaefb4fab01bc6c0ea4185, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7731,6 +7800,10 @@ PrefabInstance:
     - target: {fileID: 1157955164868691958, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153395680944873482, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4852883084326658917, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
       propertyPath: m_Name
@@ -7950,6 +8023,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5591934751950011414, guid: 77383da15d71fe246b4f52183d3a51e9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6467736592230708435, guid: 77383da15d71fe246b4f52183d3a51e9, type: 3}
       propertyPath: m_Name
       value: DryingStation
@@ -8039,3 +8116,4 @@ SceneRoots:
   - {fileID: 1639411834}
   - {fileID: 1686623928}
   - {fileID: 1384807434}
+  - {fileID: 2224834211372361089}
