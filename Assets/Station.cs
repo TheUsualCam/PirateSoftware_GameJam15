@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class Station : MonoBehaviour
 {
+    private float updatesPerSecond = 5;
+    private float nextUpdateTime;
     public struct ProcessingIngredient
     {
         public Ingredient _ingredient;
@@ -27,7 +29,8 @@ public class Station : MonoBehaviour
     public List<ProcessingIngredient> heldIngredients = new List<ProcessingIngredient>();
     
     public Ingredient.IngredientState targetState;
-
+    public ParticleSystem[] processingParticles;
+    
     [Header("Finished Ingredients")]
     public Transform finishedIngredientSpawnPoint;
     public Vector2 throwStrengthRange;
@@ -63,9 +66,18 @@ public class Station : MonoBehaviour
 
     void Update()
     {
-        // TODO Make this happen less often
+        if (Time.time > nextUpdateTime)
+        {
+            nextUpdateTime = Time.time + 1f / updatesPerSecond;
+            CheckForReadyIngredients();
+            ProcessParticleSystems();
+        }
+    }
+
+    private void CheckForReadyIngredients()
+    {
         List<ProcessingIngredient> IngredientsToRelease = new List<ProcessingIngredient>();
-        
+
         foreach (ProcessingIngredient ingredient in heldIngredients)
         {
             if (Time.time >= ingredient.finishTime)
@@ -74,13 +86,37 @@ public class Station : MonoBehaviour
                 IngredientsToRelease.Add(ingredient);
             }
         }
-        
-        foreach(ProcessingIngredient ingredient in IngredientsToRelease)
+
+        foreach (ProcessingIngredient ingredient in IngredientsToRelease)
         {
             heldIngredients.Remove(ingredient);
         }
-        
+
         IngredientsToRelease.Clear();
+    }
+
+    private void ProcessParticleSystems()
+    {
+        if (processingParticles.Length > 0)
+        {
+            if (heldIngredients.Count > 0)
+            {
+                if (!processingParticles[0].isPlaying)
+                {
+                    foreach (ParticleSystem particleSystem in processingParticles)
+                    {
+                        particleSystem.Play();
+                    }
+                }
+            }
+            else if (processingParticles[0].isPlaying)
+            {
+                foreach (ParticleSystem particleSystem in processingParticles)
+                {
+                    particleSystem.Stop();
+                }
+            }
+        }
     }
 
     void ReleaseIngredient(ProcessingIngredient processingIngredient)

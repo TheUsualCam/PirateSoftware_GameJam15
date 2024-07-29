@@ -5,6 +5,8 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour
 {
     public ParticleSystem blessedParticles;
+    public ParticleSystem driedParticles;
+    public ParticleSystem ExtractedParticles;
     
     public enum IngredientType
     {
@@ -40,7 +42,12 @@ public class Ingredient : MonoBehaviour
             case IngredientState.Blessed:
                 blessedParticles.Play();
                 break;
-            
+            case IngredientState.Dried:
+                driedParticles.Play();
+                break;
+            case IngredientState.Extracted:
+                ExtractedParticles.Play();
+                break;
             default:
                 break;
         }
