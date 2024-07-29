@@ -66,6 +66,7 @@ public class Cauldron : MonoBehaviour
     {
         currentCorruption = 0.0f;
         corruptionGraceTimeEnd = corruptionGraceCooldown + Time.time;
+        UpdateSlider();
         Debug.Log($"Cauldron Reset");
     }
     
@@ -77,6 +78,11 @@ public class Cauldron : MonoBehaviour
             Corruption();
         }
 
+        UpdateSlider();
+    }
+
+    private void UpdateSlider()
+    {
         corruptionSlider.value = Mathf.Clamp01(currentCorruption);
     }
 
