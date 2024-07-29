@@ -5,6 +5,13 @@ using UnityEngine;
 public class ShadowCreature : HomingRigidbody
 {
     public float floatingHeight;
+    public float delayBeforeMoving = 5f;
+    private float moveAfterTime;
+
+    void Start()
+    {
+        moveAfterTime = Time.time + delayBeforeMoving;
+    }
     
     protected override void ReachedTarget()
     {
@@ -18,6 +25,11 @@ public class ShadowCreature : HomingRigidbody
 
     protected override void FixedUpdate()
     {
+        if (Time.time < moveAfterTime)
+        {
+            return;
+        }
+        
         base.FixedUpdate();
         if (transform.position.y <= floatingHeight)
         {

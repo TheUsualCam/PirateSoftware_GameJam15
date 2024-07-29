@@ -6,14 +6,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
-    private Vector3 _movementDirection;
-    private Rigidbody _rigidbody;
     public float rotationStep;
     public Animator animator;
+    private Vector3 _movementDirection;
+    private Rigidbody _rigidbody;
+    private PlayerPowerUp _powerUp;
     
     private void OnEnable()
     {
+        
         _rigidbody = GetComponent<Rigidbody>();
+        _powerUp = GetComponent<PlayerPowerUp>();
         GameInput.OnMoveChanged += OnMove;
     }
 
@@ -27,7 +30,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_movementDirection != Vector3.zero)
         {
-            Vector3 movementUpdate = Time.deltaTime * speed * _movementDirection;
+            float calculatedSpeed = speed * _powerUp.GetPowerUpSpeedMultiplier();
+            Vector3 movementUpdate = Time.deltaTime * calculatedSpeed * _movementDirection;
             //Quaternion movementRotation = Quaternion.Slerp(Quaternion.Euler(transform.forward), Quaternion.Euler(_movementDirection), rotationStep * Time.deltaTime);
             _rigidbody.AddForce(movementUpdate, ForceMode.VelocityChange);
             

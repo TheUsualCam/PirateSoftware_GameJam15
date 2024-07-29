@@ -30,13 +30,19 @@ public class Cauldron : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         recipeManager = FindObjectOfType<RecipeManager>();
         uiManager = FindObjectOfType<UIManager>();
+        StartGraceTime();
     }
 
     void Update()
     {
         if(!gameManager.IsGameOver())
         {
-            CorruptionUpdate();
+            if (Time.time < corruptionGraceTimeEnd)
+            {
+                return;
+            }
+
+            AddCorruption(corruptionPerSecond * Time.deltaTime);
         }
     }
 
@@ -44,24 +50,19 @@ public class Cauldron : MonoBehaviour
     {
         AddCorruption(corruptionPerShadow);
     }
-    
-    private void CorruptionUpdate()
-    {
-        if (Time.time < corruptionGraceTimeEnd)
-        {
-            return;
-        }
 
-        AddCorruption(corruptionPerSecond * Time.deltaTime);
-    }
-    
     void Corruption()
     {
         currentCorruption = 0.0f;
-        corruptionGraceTimeEnd = corruptionGraceCooldown + Time.time;
+        StartGraceTime();
         recipeManager.LoadNextRecipe();
         uiManager.DisplayNotificationText(false);
         OnCauldronCorrupted?.Invoke();
+    }
+
+    private void StartGraceTime()
+    {
+        corruptionGraceTimeEnd = corruptionGraceCooldown + Time.time;
     }
 
     public void ResetCorruption()

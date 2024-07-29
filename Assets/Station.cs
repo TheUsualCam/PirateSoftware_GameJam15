@@ -28,7 +28,6 @@ public class Station : MonoBehaviour
     [SerializeField] private float baseDuration = 0.5f;
     [SerializeField] private Slider stationSlider = null;
 
-    private float processingDuration = 0;
     public List<ProcessingIngredient> heldIngredients = new List<ProcessingIngredient>();
     
     public Ingredient.IngredientState targetState;
@@ -57,10 +56,9 @@ public class Station : MonoBehaviour
         // Cache the item
         ProcessingIngredient newItem = new ProcessingIngredient(ingredient, Time.time + baseDuration, ingredient.GetComponent<Rigidbody>());
         heldIngredients.Add(newItem);
-        processingDuration = newItem.finishTime - Time.time;
-        stationSlider.gameObject.SetActive(true);
-        stationSlider.value = 0;
         
+        ShowUiSlider();
+
         OnIngredientProcessingStarted?.Invoke(ingredient);
         
         // Hide and reset the physics of the object
@@ -70,13 +68,26 @@ public class Station : MonoBehaviour
         ingredient.transform.localPosition = Vector3.zero;
     }
 
+    private void ShowUiSlider()
+    {
+        stationSlider.gameObject.SetActive(true);
+        stationSlider.value = 0;
+    }
+
     void Update()
     {
         if (Time.time > nextUpdateTime)
         {
             nextUpdateTime = Time.time + 1f / updatesPerSecond;
+            
             CheckForReadyIngredients();
             ProcessParticleSystems();
+            
+            if(heldIngredients.Count > 0)
+            {
+                float timeRemaining = heldIngredients[0].finishTime - Time.time;
+                stationSlider.value = timeRemaining / baseDuration;
+            }
         }
     }
 
@@ -99,13 +110,6 @@ public class Station : MonoBehaviour
         }
 
         IngredientsToRelease.Clear();
-
-        if(heldIngredients.Count > 0)
-        {
-            //Random arbitrary division by 8 to get accurate slider representation, tried
-            //multiple different combinations but couldn't get it to work as well as this does
-            stationSlider.value += Mathf.Clamp01(heldIngredients[0].finishTime - Time.time) / 8;
-        }
     }
 
     private void ProcessParticleSystems()
