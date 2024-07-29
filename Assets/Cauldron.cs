@@ -18,6 +18,7 @@ public class Cauldron : MonoBehaviour
     
     [SerializeField]private Slider corruptionSlider = null;
 
+    private GameManager gameManager;
     private RecipeManager recipeManager;
     private SpawnManager spawnManager;
     private UIManager uiManager;
@@ -27,6 +28,7 @@ public class Cauldron : MonoBehaviour
 
     private void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         recipeManager = FindObjectOfType<RecipeManager>();
         spawnManager = FindObjectOfType<SpawnManager>();
         uiManager = FindObjectOfType<UIManager>();
@@ -34,7 +36,10 @@ public class Cauldron : MonoBehaviour
 
     void Update()
     {
-        CorruptionUpdate();
+        if(!gameManager.IsGameOver())
+        {
+            CorruptionUpdate();
+        }
     }
 
     public void ShadowEntered()

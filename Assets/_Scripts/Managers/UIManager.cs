@@ -5,18 +5,23 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using System;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI notificationText;
+    [SerializeField] private TextMeshProUGUI recipesCompletedText;
     [SerializeField] private float textDisplayDuration = 2.0f;
+    [SerializeField] private GameObject recipeWindow;
+    [SerializeField] private GameObject gameOverWindow;
     [SerializeField] private List<TextMeshProUGUI> requiredIngredientsText = new List<TextMeshProUGUI>();
     [SerializeField] private Slider cauldronCorruptionSlider;
 
     private void Start()
     {
         notificationText.enabled = false;
+        gameOverWindow.SetActive(false);
     }
 
     public void UpdateTimerUI(int mins, int secs)
@@ -85,5 +90,24 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(textDisplayDuration);
         notificationText.enabled = false;
+    }
+
+    public void GameOverUI(int recipesCompleted)
+    {
+        timerText.enabled = false;
+        recipeWindow.SetActive(false);
+        notificationText.enabled = false;
+        gameOverWindow.SetActive(true);
+        recipesCompletedText.text = "Recipes Completed: " + recipesCompleted;
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadSceneAsync(1);
+    }
+
+    public void ExitToMainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 }
