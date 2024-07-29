@@ -54,6 +54,14 @@ public class RecipeManager : MonoBehaviour
     {
         Debug.Log($"Loading Recipe...");
         currentRecipe = recipes[UnityEngine.Random.Range(0, recipes.Count)];
+
+        for(int i = 0; i < currentRecipe.requiredIngredients.Count; i++)
+        {
+            ingredientModifierStruct = currentRecipe.requiredIngredients[i];
+            ingredientModifierStruct.isInCauldron = false;
+            currentRecipe.requiredIngredients[i] = ingredientModifierStruct;
+        }
+
         spawnManager.SpawnRequiredIngredients(currentRecipe.requiredIngredients);
         uiManager.UpdateRecipeUI(currentRecipe);
     }
