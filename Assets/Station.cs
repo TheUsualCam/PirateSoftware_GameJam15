@@ -93,23 +93,28 @@ public class Station : MonoBehaviour
 
     private void CheckForReadyIngredients()
     {
-        List<ProcessingIngredient> IngredientsToRelease = new List<ProcessingIngredient>();
+        List<ProcessingIngredient> IngredientsToRemove = new List<ProcessingIngredient>();
 
         foreach (ProcessingIngredient ingredient in heldIngredients)
         {
+            if (ingredient._ingredient.transform != null)
+            {
+                IngredientsToRemove.Add(ingredient);
+                continue;
+            }
             if (Time.time >= ingredient.finishTime)
             {
                 ReleaseIngredient(ingredient);
-                IngredientsToRelease.Add(ingredient);
+                IngredientsToRemove.Add(ingredient);
             }
         }
 
-        foreach (ProcessingIngredient ingredient in IngredientsToRelease)
+        foreach (ProcessingIngredient ingredient in IngredientsToRemove)
         {
             heldIngredients.Remove(ingredient);
         }
 
-        IngredientsToRelease.Clear();
+        IngredientsToRemove.Clear();
     }
 
     private void ProcessParticleSystems()
