@@ -18,6 +18,7 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnRequiredIngredients(List<RequiredIngredient> requiredIngredients)
     {
+        /*
         for (int i = spawnedIngredients.Count - 1; i > 0; i--)
         {
             if (spawnedIngredients[i])
@@ -27,6 +28,7 @@ public class SpawnManager : MonoBehaviour
         }
 
         spawnedIngredients.Clear();
+        */
 
         for (int i = 0; i < requiredIngredients.Count; i++)
         {

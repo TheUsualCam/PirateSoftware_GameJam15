@@ -6,7 +6,13 @@ using UnityEngine;
 
 public class RecipeManager : MonoBehaviour
 {
-    [SerializeField] private List<Recipe> recipes = new List<Recipe>();
+    [SerializeField] private List<Recipe> twoIngRecipes = new List<Recipe>();
+    [SerializeField] private List<Recipe> threeIngRecipes = new List<Recipe>();
+    [SerializeField] private List<Recipe> fourIngRecipes = new List<Recipe>();
+    [SerializeField] private List<Recipe> fiveIngRecipes = new List<Recipe>();
+
+    private List<Recipe> activeRecipes = new List<Recipe>();
+
     private int completedRecipes = 0;
 
     private SpawnManager spawnManager;
@@ -36,22 +42,14 @@ public class RecipeManager : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         cauldron = FindObjectOfType<Cauldron>();
 
-        for(int i = 0; i < recipes.Count; i++)
-        {
-            for(int j = 0; j < recipes[i].requiredIngredients.Count; j++)
-            {
-                ingredientModifierStruct = recipes[i].requiredIngredients[j];
-                ingredientModifierStruct.isInCauldron = false;
-                recipes[i].requiredIngredients[j] = ingredientModifierStruct;
-            }
-        }
-
         LoadNextRecipe();
     }
 
     public void LoadNextRecipe()
     {
-        currentRecipe = recipes[UnityEngine.Random.Range(0, recipes.Count)];
+        UpdateActiveRecipes();
+
+        currentRecipe = activeRecipes[UnityEngine.Random.Range(0, activeRecipes.Count)];
 
         for(int i = 0; i < currentRecipe.requiredIngredients.Count; i++)
         {
@@ -107,5 +105,25 @@ public class RecipeManager : MonoBehaviour
     public int GetNumberOfCompletedRecipes()
     {
         return completedRecipes;
+    }
+
+    void UpdateActiveRecipes()
+    {
+        if (completedRecipes <= 3)
+        {
+            activeRecipes = twoIngRecipes;
+        }
+        else if (completedRecipes > 3 && completedRecipes <= 6)
+        {
+            activeRecipes = threeIngRecipes;
+        }
+        else if (completedRecipes > 6 && completedRecipes <= 10)
+        {
+            activeRecipes = fourIngRecipes;
+        }
+        else
+        {
+            activeRecipes = fiveIngRecipes;
+        }
     }
 }
