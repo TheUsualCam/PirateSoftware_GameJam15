@@ -41,6 +41,16 @@ public class Station : MonoBehaviour
 
     public static event Action<Ingredient> OnIngredientProcessingStarted;
 
+    [Header("Audio")] 
+    public AudioClip processingAudio;
+    private AudioSource processingAudioSource;
+
+    private void Awake()
+    {
+        processingAudioSource = GetComponent<AudioSource>();
+        processingAudioSource.clip = processingAudio;
+    }
+
     private void OnTriggerEnter(Collider enteredCollider)
     {
         Ingredient ingredient = enteredCollider.gameObject.GetComponent<Ingredient>();
@@ -88,10 +98,19 @@ public class Station : MonoBehaviour
                 float timeRemaining = heldIngredients[0].finishTime - Time.time;
                 
                 stationSlider.value = 1 - (timeRemaining / baseDuration);
+
+                if (!processingAudioSource.isPlaying)
+                {
+                    processingAudioSource.Play();
+                }
             }
             else
             {
                 HideUiSlider();
+                if (processingAudioSource.isPlaying)
+                {
+                    processingAudioSource.Stop();
+                }
             }
             
         }
