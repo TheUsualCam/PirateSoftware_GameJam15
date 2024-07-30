@@ -6,7 +6,7 @@ AvatarMask:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AvatarMask
+  m_Name: AvatarMask_LowerBody
   m_Mask: 01000000000000000000000001000000010000000000000000000000000000000000000001000000010000000000000000000000
   m_Elements:
   - m_Path: 
