@@ -3,7 +3,12 @@ guid: b21f4b9163cec5f41a4e49d8f7924b8e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dryingTable
+    second: {fileID: 2100000, guid: 9b3925bcc30440b46a353e068e900d3f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
