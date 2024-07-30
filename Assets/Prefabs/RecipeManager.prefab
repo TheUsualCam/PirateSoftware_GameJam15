@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1167094307890309579
+--- !u!1 &1673454881998394606
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 889989598036119113}
-  - component: {fileID: 8528788699173935059}
+  - component: {fileID: 3683594813731467510}
+  - component: {fileID: 3276847242542648657}
   m_Layer: 0
   m_Name: RecipeManager
   m_TagString: Untagged
@@ -17,33 +17,42 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &889989598036119113
+--- !u!4 &3683594813731467510
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167094307890309579}
+  m_GameObject: {fileID: 1673454881998394606}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8528788699173935059
+--- !u!114 &3276847242542648657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167094307890309579}
+  m_GameObject: {fileID: 1673454881998394606}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1b5e445582b6db4aa696137e132db61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipes:
-  - {fileID: 11400000, guid: 4f7ae45e1d895144892fd7ab6bc3292f, type: 2}
-  - {fileID: 11400000, guid: c43397e665c177942b7b9bc60d166999, type: 2}
+  twoIngRecipes:
+  - {fileID: 11400000, guid: 3b0047fc29b5f1545b555f9e0b63a8c0, type: 2}
+  - {fileID: 11400000, guid: 3317ae5d04ecfd24698be096b3a17387, type: 2}
+  threeIngRecipes:
+  - {fileID: 11400000, guid: ec273e2221687a0449ff4dfef822c3a7, type: 2}
+  - {fileID: 11400000, guid: c83ab519ba5017d4abb890088d3fe47b, type: 2}
+  fourIngRecipes:
+  - {fileID: 11400000, guid: b809f8b5a5c918d4d8be162df2097624, type: 2}
+  - {fileID: 11400000, guid: 98dc9a1caa4e818498e9d8e3fe799d75, type: 2}
+  fiveIngRecipes:
+  - {fileID: 11400000, guid: 1e1b2cd7159860442a93ec970b80266b, type: 2}
+  - {fileID: 11400000, guid: b678745f35c8bd44a83d5bcdaa8d892f, type: 2}
