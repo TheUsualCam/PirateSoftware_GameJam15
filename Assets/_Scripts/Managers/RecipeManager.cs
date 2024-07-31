@@ -179,21 +179,21 @@ public class RecipeManager : MonoBehaviour
 
     void UpdateActiveRecipes()
     {
-        if (completedRecipes <= availableAtCompletedRecipes_TwoIngredients)
+        if (completedRecipes > availableAtCompletedRecipes_FiveIngredients)
         {
             availableRecipes = twoIngRecipes;
-        }
-        else if (completedRecipes > availableAtCompletedRecipes_ThreeIngredients && completedRecipes <= availableAtCompletedRecipes_FourIngredients)
-        {
-            availableRecipes = threeIngRecipes;
         }
         else if (completedRecipes > availableAtCompletedRecipes_FourIngredients && completedRecipes <= availableAtCompletedRecipes_FiveIngredients)
         {
             availableRecipes = fourIngRecipes;
         }
+        else if (completedRecipes > availableAtCompletedRecipes_ThreeIngredients && completedRecipes <= availableAtCompletedRecipes_FourIngredients)
+        {
+            availableRecipes = threeIngRecipes;
+        }
         else
         {
-            availableRecipes = fiveIngRecipes;
+            availableRecipes = twoIngRecipes;
         }
     }
 
