@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1284435828069098804, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -1983021447981497772, guid: 38da44f69d5b1ae409452fdfd932ba35, type: 3}
+      objectReference: {fileID: 557563691888143698, guid: eed72ec5d8d653b4689676e79a671707, type: 3}
     - target: {fileID: 3998948148569142615, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_Name
       value: Ingredient_Mineral
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104454583771185668, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: ingredientType
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5248294792018774323, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -30,27 +30,27 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 40be8b3628ebcf943ac298a08215282c, type: 2}
     - target: {fileID: 5967781852345436247, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5967781852345436247, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5967781852345436247, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_LocalScale.z
-      value: 100
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5967781852345436247, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.092
+      value: 1.3092439
       objectReference: {fileID: 0}
     - target: {fileID: 5967781852345436247, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.545
+      value: 0.20345855
       objectReference: {fileID: 0}
     - target: {fileID: 5967781852345436247, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.167
+      value: 2.2366307
       objectReference: {fileID: 0}
     - target: {fileID: 5967781852345436247, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_LocalRotation.w
@@ -115,4 +115,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -1983021447981497772, guid: 38da44f69d5b1ae409452fdfd932ba35, type: 3}
+  m_Mesh: {fileID: 557563691888143698, guid: eed72ec5d8d653b4689676e79a671707, type: 3}
