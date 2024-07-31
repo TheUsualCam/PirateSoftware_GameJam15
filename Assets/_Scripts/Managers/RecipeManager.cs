@@ -67,11 +67,11 @@ public class RecipeManager : MonoBehaviour
     public void UpdateCurrentRecipe(Ingredient ingredient)
     {
         List<Recipe> recipesToRemove = new List<Recipe>();
-        bool matchingIngredient = false;
+        bool matchingIngredientFound = false;
         // For each active recipe
         for (int recipeIndex = 0; recipeIndex < activeRecipes.Count; recipeIndex++)
         {
-            if (matchingIngredient)
+            if (matchingIngredientFound)
             {
                 break;
             }
@@ -82,41 +82,39 @@ public class RecipeManager : MonoBehaviour
                 bool typeMatchesRequiredIngredient = ingredient.ingredientType == activeRecipes[recipeIndex].requiredIngredients[i].ingredient;
                 bool processMatchesRequiredIngredient = ingredient.ingredientState == activeRecipes[recipeIndex].requiredIngredients[i].method;
                 bool isInCauldron = activeRecipes[recipeIndex].requiredIngredients[i].isInCauldron;
+                
                 if(typeMatchesRequiredIngredient && processMatchesRequiredIngredient && !isInCauldron)
                 {
                     ingredientModifierStruct = activeRecipes[recipeIndex].requiredIngredients[i];
                     ingredientModifierStruct.isInCauldron = true;
                     activeRecipes[recipeIndex].requiredIngredients[i] = ingredientModifierStruct;
-                    matchingIngredient = true;
+                    matchingIngredientFound = true;
                     break;
-                }
-                
-                if(i == activeRecipes[recipeIndex].requiredIngredients.Count - 1)
-                {
-                    cauldron.AddCorruption(cauldron.GetCorruptionPerBadIngredient());
-                    spawnManager.RespawnIngredient(ingredient);
                 }
             }
 
             uiManager.UpdateCard(activeRecipes[recipeIndex]);
 
+            bool isRecipeFinished = true;
             for(int i = 0; i < activeRecipes[recipeIndex].requiredIngredients.Count; i++)
             {
                 if (!activeRecipes[recipeIndex].requiredIngredients[i].isInCauldron)
                 {
-                    return;
+                    isRecipeFinished = false;
                 }
             }
 
-            // Recipe is complete.
-            recipesToRemove.Add(activeRecipes[recipeIndex]);
-            
-            uiManager.CloseRecipeCard(activeRecipes[recipeIndex]);
-            completedRecipes++;
-            cauldron.ResetCorruption();
-            uiManager.DisplayNotificationText(true);
-            LoadNextRecipe();
-            
+            if (isRecipeFinished)
+            {
+                // Recipe is complete.
+                recipesToRemove.Add(activeRecipes[recipeIndex]);
+                
+                uiManager.CloseRecipeCard(activeRecipes[recipeIndex]);
+                completedRecipes++;
+                cauldron.ResetCorruption();
+                uiManager.DisplayNotificationText(true);
+                LoadNextRecipe();
+            }
         }
 
         foreach (Recipe recipeToRemove in recipesToRemove)
