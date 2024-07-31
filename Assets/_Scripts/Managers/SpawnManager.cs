@@ -11,6 +11,10 @@ public class SpawnManager : MonoBehaviour
     
     private List<Ingredient> spawnedIngredients = new List<Ingredient>();
     private Ingredient newIngredient;
+    public float initialSpawnDelay = 0.3f;
+    public float delayBetweenSpawn = 0.1f;
+    public AudioClip spawnStartSound;
+    public AudioClip spawnEndSound;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +24,28 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnRequiredIngredients(List<RequiredIngredient> requiredIngredients)
     {
+        StartCoroutine(ESpawnRequiredIngredients(requiredIngredients));
+    }
+
+    private IEnumerator ESpawnRequiredIngredients(List<RequiredIngredient> requiredIngredients)
+    {
+        AudioManager.instance.PlaySoundClip(spawnStartSound, ingredientSpawnPosition, 1f);
+        
+        yield return new WaitForSeconds(initialSpawnDelay);
+        
         for (int i = 0; i < requiredIngredients.Count; i++)
         {
             newIngredient = Instantiate(ingredientPrefabs[(int)requiredIngredients[i].ingredient], ingredientSpawnPosition.position, Quaternion.identity).GetComponent<Ingredient>();
             spawnedIngredients.Add(newIngredient);
+            yield return new WaitForSeconds(delayBetweenSpawn);
         }
+        
+        yield return new WaitForSeconds(initialSpawnDelay);
+
+        AudioManager.instance.PlaySoundClip(spawnEndSound, ingredientSpawnPosition, 1f);
+
     }
+
 
     public void RespawnIngredient(Ingredient ingredient)
     {

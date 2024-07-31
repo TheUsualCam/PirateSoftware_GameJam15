@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9fe4f73f3cade46bc2d22f0f526356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnSound: {fileID: 8300000, guid: 9dae573b7d7bd0f49815e6e20303978c, type: 3}
   blessedParticles: {fileID: 985220933199116705}
   extractedMesh: {fileID: 0}
   extractedMaterials: []

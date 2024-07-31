@@ -44,10 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de719c8412b91f1499a20ba79691527a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientPrefabs:
+  - {fileID: 6627397256192124102, guid: fe25b25e3478128439b93486aaf8c42f, type: 3}
+  - {fileID: 6627397256192124102, guid: d364d3f1b0b8f5547af2ce3e251ce532, type: 3}
+  - {fileID: 6627397256192124102, guid: 97f591acfb0e58d419bfcfaa99ff5bfd, type: 3}
+  - {fileID: 6627397256192124102, guid: b3bc4be664551cb4b80d61f2d90b7784, type: 3}
   ingredientSpawnPosition: {fileID: 0}
-  shadowPrefab: {fileID: 0}
-  cauldronPosition: {fileID: 0}
-  minSpawnRadius: 1.5
-  maxSpawnRadius: 2
-  shadowSpawnHeight: 5
-  shadowsPerSpawn: 3
+  delayBetweenSpawn: 0.1
+  initialSpawnDelay: 0.1
+  spawnStartSound: {fileID: 8300000, guid: aace52b6f05d55a48914c295b3882978, type: 3}
+  spawnEndSound: {fileID: 8300000, guid: e18f2f0538f38d04e8bc7d1d7669456a, type: 3}

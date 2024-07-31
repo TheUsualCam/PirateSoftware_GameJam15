@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    
+    public AudioClip spawnSound;
     [Header("Blessed State")]
     public ParticleSystem blessedParticles;
 
@@ -38,6 +38,10 @@ public class Ingredient : MonoBehaviour
     public IngredientType ingredientType;
     public IngredientState ingredientState;
 
+    void Start()
+    {
+        AudioManager.instance.PlaySoundClip(spawnSound, transform, 1f);
+    }
     void FixedUpdate()
     {
         if (transform.position.y < -1f)
