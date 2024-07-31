@@ -8,10 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 985220933199116705, guid: 46146a45cd117cd488967ab409eab775, type: 3}
+      propertyPath: ShapeModule.randomPositionAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1284435828069098804, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -2037608176941137491, guid: d44f27e8d9c7f3041bf1df0f286f91fc, type: 3}
+    - target: {fileID: 1774235233827413080, guid: 46146a45cd117cd488967ab409eab775, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774235233827413080, guid: 46146a45cd117cd488967ab409eab775, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774235233827413080, guid: 46146a45cd117cd488967ab409eab775, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3998948148569142615, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_Name
       value: Ingredient_Meat
@@ -127,7 +143,7 @@ PrefabInstance:
     - target: {fileID: 7362800143557347897, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3b62262d7bb8ceb4d954494ab5402a42, type: 2}
+      objectReference: {fileID: 2100000, guid: fc29287913422f243a671e3af2b4c09a, type: 2}
     m_RemovedComponents:
     - {fileID: 776956034611537741, guid: 46146a45cd117cd488967ab409eab775, type: 3}
     m_RemovedGameObjects: []
