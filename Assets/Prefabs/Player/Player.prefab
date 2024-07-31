@@ -50,7 +50,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305817134260705307}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 25
   m_Drag: 2.5
   m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -67,7 +67,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 2
 --- !u!114 &7514416674093357694
 MonoBehaviour:
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cc88490bdcfc044aaad392d4f9f0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 5.6
   rotationStep: 7
   animator: {fileID: 1414735597006984117}
 --- !u!65 &6861810792894365349
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b989f3d548a99644784494b73ed17626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0.3, z: 0}
+  offset: {x: 0, y: 0.4, z: 0.1}
   targetA: {fileID: 2593552551740527855}
   targetB: {fileID: 5614691103235547639}
 --- !u!1 &5821853998905472817
@@ -770,6 +770,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -17.149
       objectReference: {fileID: 0}
+    - target: {fileID: 8236423929017219857, guid: 220e8367fa267264882ff266dfb4749c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6506502042652627560, guid: 8e0534bd78152564396898d33880c3ab, type: 3}
+    - target: {fileID: 8236423929017219857, guid: 220e8367fa267264882ff266dfb4749c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d419a3d8cda4b5b4d9f90749011bfe94, type: 2}
     - target: {fileID: 8833091307997116662, guid: 220e8367fa267264882ff266dfb4749c, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1904,13 +1912,13 @@ MonoBehaviour:
   handsForwardsForce: 2000
   grabbedObject: {fileID: 0}
   holdOrigin: {fileID: 8192786487806441363}
-  dropForce: 1
+  dropForce: 1.5
   throwWindUpDuration: 0.35
   windUpStrength: 10000
   windUpDirection: {x: 0, y: 0.1, z: -1}
   throwDuration: 0.18
   throwStrength: 25000
-  thrownObjectImpulseStrength: 3
+  thrownObjectImpulseStrength: 4
   throwDirection: {x: 0, y: 0.5, z: 1}
   isThrowing: 0
 --- !u!4 &2593552551740527855 stripped

@@ -8865,14 +8865,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1440490662296035908, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
-      propertyPath: m_Mass
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440490662296035908, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
-      propertyPath: m_Constraints
-      value: 84
-      objectReference: {fileID: 0}
     - target: {fileID: 4199819983085938630, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.053
@@ -8912,22 +8904,6 @@ PrefabInstance:
     - target: {fileID: 4199819983085938630, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5530236005223124398, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6797616549520255696, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 6506502042652627560, guid: 8e0534bd78152564396898d33880c3ab, type: 3}
-    - target: {fileID: 6797616549520255696, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d419a3d8cda4b5b4d9f90749011bfe94, type: 2}
-    - target: {fileID: 7514416674093357694, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
-      propertyPath: speed
-      value: 5.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
