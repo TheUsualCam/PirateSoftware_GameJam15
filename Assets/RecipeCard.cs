@@ -14,7 +14,7 @@ public class RecipeCard : MonoBehaviour
     public Animator animator;
     public Recipe recipe;
     public List<Image> icons;
-    public List<GameObject> iconTicks;
+    public List<GameObject> iconTicks = new List<GameObject>();
 
     public void Initialize(Recipe newRecipe)
     {

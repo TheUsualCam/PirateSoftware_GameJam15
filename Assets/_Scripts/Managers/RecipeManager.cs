@@ -9,11 +9,19 @@ using Random = UnityEngine.Random;
 public class RecipeManager : MonoBehaviour
 {
     [SerializeField] private List<Recipe> twoIngRecipes = new List<Recipe>();
+    public float availableAtCompletedRecipes_TwoIngredients = 0;
     [SerializeField] private List<Recipe> threeIngRecipes = new List<Recipe>();
+    public float availableAtCompletedRecipes_ThreeIngredients = 2;
     [SerializeField] private List<Recipe> fourIngRecipes = new List<Recipe>();
+    public float availableAtCompletedRecipes_FourIngredients = 6;
     [SerializeField] private List<Recipe> fiveIngRecipes = new List<Recipe>();
+    public float availableAtCompletedRecipes_FiveIngredients = 8;
 
-    private List<Recipe> availableRecipes = new List<Recipe>();
+    public List<float> timesToSpawnNewRecipe = new List<float>();
+    public float chanceToReturnRecipeAfterFinishing = 0.5f;
+    
+
+    public List<Recipe> availableRecipes = new List<Recipe>();
 
     private int completedRecipes = 0;
 
@@ -28,15 +36,16 @@ public class RecipeManager : MonoBehaviour
     public AudioClip correctIngredientClip;
     public AudioClip incorrectIngredientClip;
     public AudioClip completeRecipeClip;
+    
 
     private void OnEnable()
     {
-        Cauldron.OnCauldronCorrupted += LoadNextRecipe;
+        Cauldron.OnCauldronCorrupted += LoadAdditionalRecipe;
     }
 
     private void OnDisable()
     {
-        Cauldron.OnCauldronCorrupted -= LoadNextRecipe;
+        Cauldron.OnCauldronCorrupted -= LoadAdditionalRecipe;
 
     }
 
@@ -48,10 +57,26 @@ public class RecipeManager : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         cauldron = FindObjectOfType<Cauldron>();
 
-        LoadNextRecipe();
+        LoadAdditionalRecipe();
+
+        StartCoroutine(ELoadRecipesForGame());
     }
 
-    public void LoadNextRecipe()
+    private IEnumerator ELoadRecipesForGame()
+    {
+        
+        for (int i = 0; i < timesToSpawnNewRecipe.Count; i++)
+        {
+            yield return new WaitForSeconds(Mathf.Max(0f, timesToSpawnNewRecipe[i] - Time.timeSinceLevelLoad));
+            LoadAdditionalRecipe();
+            timesToSpawnNewRecipe.RemoveAt(i);
+            i--;
+        }
+        
+        yield return null;
+    }
+
+    public void LoadAdditionalRecipe()
     {
         UpdateActiveRecipes();
 
@@ -125,7 +150,10 @@ public class RecipeManager : MonoBehaviour
                     completedRecipes++;
                     cauldron.ResetCorruption();
                     uiManager.DisplayNotificationText(true);
-                    LoadNextRecipe();
+                    if (Random.Range(0f, 1f) <= chanceToReturnRecipeAfterFinishing)
+                    {
+                        LoadAdditionalRecipe();
+                    }
                 }
             }
 
@@ -151,15 +179,15 @@ public class RecipeManager : MonoBehaviour
 
     void UpdateActiveRecipes()
     {
-        if (completedRecipes <= 3)
+        if (completedRecipes <= availableAtCompletedRecipes_TwoIngredients)
         {
             availableRecipes = twoIngRecipes;
         }
-        else if (completedRecipes > 3 && completedRecipes <= 6)
+        else if (completedRecipes > availableAtCompletedRecipes_ThreeIngredients && completedRecipes <= availableAtCompletedRecipes_FourIngredients)
         {
             availableRecipes = threeIngRecipes;
         }
-        else if (completedRecipes > 6 && completedRecipes <= 10)
+        else if (completedRecipes > availableAtCompletedRecipes_FourIngredients && completedRecipes <= availableAtCompletedRecipes_FiveIngredients)
         {
             availableRecipes = fourIngRecipes;
         }

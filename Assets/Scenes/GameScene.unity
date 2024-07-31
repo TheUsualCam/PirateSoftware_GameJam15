@@ -2597,57 +2597,25 @@ PrefabInstance:
       value: RecipeManager
       objectReference: {fileID: 0}
     - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: completeRecipeClip
-      value: 
-      objectReference: {fileID: 8300000, guid: eda1acaf93bbe87499a0abdfe05831e0, type: 3}
-    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: correctIngredientClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 972846a2198793c4c9b90e2466da95bb, type: 3}
-    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: incorrectIngredientClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 530dc879ed67e914f8cf939aff926f5e, type: 3}
-    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: twoIngRecipes.Array.size
-      value: 10
+      propertyPath: timesToSpawnNewRecipe.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: twoIngRecipes.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: ec388f08f9cee4240aaae6dfe6e80827, type: 2}
+      propertyPath: chanceToReturnRecipeAfterFinishing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: twoIngRecipes.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 219dd10d0d8bd6445af73a8bb7570f56, type: 2}
+      propertyPath: timesToSpawnNewRecipe.Array.data[0]
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: twoIngRecipes.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: ba3444c4e2088734390cb2ecc612320b, type: 2}
+      propertyPath: timesToSpawnNewRecipe.Array.data[1]
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: twoIngRecipes.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 00d325f610f88e04794818121c89c67a, type: 2}
-    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: twoIngRecipes.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 2b595a532d8b2e442888e51bd596be42, type: 2}
-    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: twoIngRecipes.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: ac59cc4eb99f2844499aa38231bb9df7, type: 2}
-    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: twoIngRecipes.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5040acec795acc34ca4f087aed6753f3, type: 2}
-    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: twoIngRecipes.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: 726ee6c4c183c734f81e937f54ab2554, type: 2}
-    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
-      propertyPath: twoIngRecipes.Array.data[9]
-      value: 
-      objectReference: {fileID: 11400000, guid: a6a0464838f93d0438f6566d989a00f9, type: 2}
+      propertyPath: timesToSpawnNewRecipe.Array.data[2]
+      value: 240
+      objectReference: {fileID: 0}
     - target: {fileID: 3683594813731467510, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8490,11 +8458,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 295315376169670050, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.013626652
+      value: 0.013626683
       objectReference: {fileID: 0}
     - target: {fileID: 295315376169670050, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006955762
+      value: -0.0069557778
       objectReference: {fileID: 0}
     - target: {fileID: 5929969687240033659, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_Name
@@ -8570,11 +8538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7249020413888515854, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.013626652
+      value: 0.013626683
       objectReference: {fileID: 0}
     - target: {fileID: 7249020413888515854, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006955762
+      value: -0.0069557778
       objectReference: {fileID: 0}
     - target: {fileID: 8289628092971140367, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_Follow

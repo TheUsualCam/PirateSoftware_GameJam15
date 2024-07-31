@@ -174,25 +174,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MeatSprites:
-  - {fileID: 21300000, guid: 280bc6f6f202f3c4ea631130df6f2211, type: 3}
-  - {fileID: 21300000, guid: ad5a2c3d1861e6843b63ae4a19b32c63, type: 3}
-  - {fileID: 21300000, guid: a1f108382b766044caaa55f13400c99b, type: 3}
-  - {fileID: 21300000, guid: 76486fea134491745a58c0159f99c88f, type: 3}
+  - {fileID: 21300000, guid: 353991e5ba4d2344fabd1fa09e3ed485, type: 3}
+  - {fileID: 21300000, guid: 24336cb1f9ca5da41bccf9aa0e5f5950, type: 3}
+  - {fileID: 21300000, guid: f2580ea6e6a93064eb9ab68d90c34476, type: 3}
+  - {fileID: 21300000, guid: 3d6a6c98ecdd1e6408dc354ce623b227, type: 3}
   PlantSprites:
-  - {fileID: 21300000, guid: 1c7583e0855927544ad9c7f1d6a7c3cb, type: 3}
-  - {fileID: 21300000, guid: e683e7497838036458b7d6090b06788d, type: 3}
-  - {fileID: 21300000, guid: 2f406c47d8a28cb468518d152570c5fc, type: 3}
-  - {fileID: 21300000, guid: 00c249a431150d740b348114ef44a01c, type: 3}
+  - {fileID: 21300000, guid: 9b665b4cf13dc0a40a96f1a57b9b97ac, type: 3}
+  - {fileID: 21300000, guid: 4d4b12a540827bc41ae8d1f0f7a5782e, type: 3}
+  - {fileID: 21300000, guid: 08d31002945827e408f407da04ef3428, type: 3}
+  - {fileID: 21300000, guid: 0e10ada87a9f4c7488db02841faf8db3, type: 3}
   MineralSprites:
-  - {fileID: 21300000, guid: a012139b0c061d6449867c90009460fb, type: 3}
-  - {fileID: 21300000, guid: 1d041bc570318e44b94a8eeda392c2a1, type: 3}
-  - {fileID: 21300000, guid: af64e55442ffd944788618b7e9092825, type: 3}
-  - {fileID: 21300000, guid: daed5c7f70a32ab4d86498ccadff4983, type: 3}
+  - {fileID: 21300000, guid: 76a3595b15dc4e648926d32e403d0916, type: 3}
+  - {fileID: 21300000, guid: 25be981cae5e8ac4e8fd286e2202aafa, type: 3}
+  - {fileID: 21300000, guid: 2612c335a2453da438eed801995b4e8d, type: 3}
+  - {fileID: 21300000, guid: 56c4390acced91d4c986adae2158ed93, type: 3}
   MagicSprites:
-  - {fileID: 21300000, guid: 7820d6686a0e7604fbe137a838de6893, type: 3}
-  - {fileID: 21300000, guid: 6a386d5a9703fec47be4062b2e31810d, type: 3}
-  - {fileID: 21300000, guid: adb00e9615eeda64ea541aee937bb7e8, type: 3}
-  - {fileID: 21300000, guid: b6906488f1c4ed442a7df7247efdea64, type: 3}
+  - {fileID: 21300000, guid: 4e2d7a8821044464db7e192e19844443, type: 3}
+  - {fileID: 21300000, guid: 2c51a31d16a122a43bbc4e79ce36a25e, type: 3}
+  - {fileID: 21300000, guid: d6a759c2e1fe75340becc4a765424e45, type: 3}
+  - {fileID: 21300000, guid: 7337d81ce5b1a5541b18a77f529b3d88, type: 3}
   animator: {fileID: 776564644835336752}
   recipe: {fileID: 0}
   icons:
@@ -205,8 +205,6 @@ MonoBehaviour:
   - {fileID: 7415138196552101850}
   - {fileID: 6265105375622380481}
   - {fileID: 8467917972770169225}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1001 &2769863307794487361
 PrefabInstance:
   m_ObjectHideFlags: 0

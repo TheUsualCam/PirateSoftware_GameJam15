@@ -4959,10 +4959,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speedBase: 1000
-  despawnDistance: 1.3
+  despawnDistance: 1.7
   rigidbody: {fileID: 6267013583822988958}
   floatingHeight: 0.8
-  delayBeforeMoving: 5
+  delayBeforeMoving: 7
 --- !u!64 &7627177456941269702
 MeshCollider:
   m_ObjectHideFlags: 0

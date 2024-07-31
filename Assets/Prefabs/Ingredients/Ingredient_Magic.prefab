@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 985220933199116705, guid: 46146a45cd117cd488967ab409eab775, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 985220933199116705, guid: 46146a45cd117cd488967ab409eab775, type: 3}
+      propertyPath: EmissionModule.rateOverTime.minScalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 985220933199116705, guid: 46146a45cd117cd488967ab409eab775, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1284435828069098804, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: m_Mesh
       value: 

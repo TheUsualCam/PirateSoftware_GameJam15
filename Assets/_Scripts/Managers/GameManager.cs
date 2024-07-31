@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
         recipeManager = FindObjectOfType<RecipeManager>();
         timerMins = gameTimerInMinutes;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -58,6 +60,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         isGameOver = true;
         uiManager.GameOverUI(recipeManager.GetNumberOfCompletedRecipes());
     }

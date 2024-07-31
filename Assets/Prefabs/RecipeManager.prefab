@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   twoIngRecipes:
   - {fileID: 11400000, guid: 3b0047fc29b5f1545b555f9e0b63a8c0, type: 2}
-  - {fileID: 11400000, guid: 3317ae5d04ecfd24698be096b3a17387, type: 2}
-  - {fileID: 11400000, guid: 6eaf1960003cd184e9e45d8b7e6ceb43, type: 2}
+  - {fileID: 11400000, guid: ec388f08f9cee4240aaae6dfe6e80827, type: 2}
+  - {fileID: 11400000, guid: 219dd10d0d8bd6445af73a8bb7570f56, type: 2}
   - {fileID: 11400000, guid: ba3444c4e2088734390cb2ecc612320b, type: 2}
   - {fileID: 11400000, guid: 00d325f610f88e04794818121c89c67a, type: 2}
   - {fileID: 11400000, guid: 2b595a532d8b2e442888e51bd596be42, type: 2}
@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5040acec795acc34ca4f087aed6753f3, type: 2}
   - {fileID: 11400000, guid: 726ee6c4c183c734f81e937f54ab2554, type: 2}
   - {fileID: 11400000, guid: a6a0464838f93d0438f6566d989a00f9, type: 2}
+  availableAtCompletedRecipes_TwoIngredients: 0
   threeIngRecipes:
   - {fileID: 11400000, guid: ec273e2221687a0449ff4dfef822c3a7, type: 2}
   - {fileID: 11400000, guid: c83ab519ba5017d4abb890088d3fe47b, type: 2}
@@ -66,6 +67,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d14c5eb79b34d78449348b261f164651, type: 2}
   - {fileID: 11400000, guid: f4281af79cc04414ab849c15352c88c1, type: 2}
   - {fileID: 11400000, guid: 281a089fb3bcab2439e95a90b4629ef8, type: 2}
+  availableAtCompletedRecipes_ThreeIngredients: 2
   fourIngRecipes:
   - {fileID: 11400000, guid: b809f8b5a5c918d4d8be162df2097624, type: 2}
   - {fileID: 11400000, guid: 98dc9a1caa4e818498e9d8e3fe799d75, type: 2}
@@ -77,6 +79,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6a9b321b7884da44191912aecee85681, type: 2}
   - {fileID: 11400000, guid: 8153f91e777e4e64d9f6a84175b6247e, type: 2}
   - {fileID: 11400000, guid: 08aa546ea4797624e8b8592e5f764c1f, type: 2}
+  availableAtCompletedRecipes_FourIngredients: 6
   fiveIngRecipes:
   - {fileID: 11400000, guid: 1e1b2cd7159860442a93ec970b80266b, type: 2}
   - {fileID: 11400000, guid: b678745f35c8bd44a83d5bcdaa8d892f, type: 2}
@@ -88,3 +91,29 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 666749d4e2d1fbe4ab30665488fc9cbc, type: 2}
   - {fileID: 11400000, guid: 31a6ed080e0f3474ab6cd60fda1727f9, type: 2}
   - {fileID: 11400000, guid: 1bcbe1eb4f8abef49860e780b796cdc9, type: 2}
+  availableAtCompletedRecipes_FiveIngredients: 8
+  timesToSpawnNewRecipe:
+  - 25
+  - 32
+  - 60
+  - 110
+  - 112
+  - 142
+  - 155
+  - 178
+  - 180
+  - 187
+  - 208
+  - 215
+  - 220
+  - 240
+  - 245
+  - 255
+  - 270
+  - 280
+  chanceToReturnRecipeAfterFinishing: 0.5
+  availableRecipes: []
+  activeRecipes: []
+  correctIngredientClip: {fileID: 8300000, guid: 972846a2198793c4c9b90e2466da95bb, type: 3}
+  incorrectIngredientClip: {fileID: 8300000, guid: 530dc879ed67e914f8cf939aff926f5e, type: 3}
+  completeRecipeClip: {fileID: 8300000, guid: eda1acaf93bbe87499a0abdfe05831e0, type: 3}
