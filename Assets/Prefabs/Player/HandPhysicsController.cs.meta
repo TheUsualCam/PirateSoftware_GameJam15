@@ -3,7 +3,16 @@ guid: 024943c2fa5848842a7bbae2a0106490
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _balancer: {instanceID: 0}
+  - _grabSearchOrigin: {instanceID: 0}
+  - leftHandRigidbody: {instanceID: 0}
+  - rightHandRigidBody: {instanceID: 0}
+  - grabbedObject: {instanceID: 0}
+  - holdOrigin: {instanceID: 0}
+  - pickUpClip: {fileID: 8300000, guid: 6c88ae1caefcc5a4f8f54ece27f2ea5d, type: 3}
+  - dropClip: {fileID: 8300000, guid: ab3b5ad349f09c244ab8467fb5fc81e0, type: 3}
+  - throwClip: {fileID: 8300000, guid: e9405c6f63cabc248bd6268bba51a5af, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

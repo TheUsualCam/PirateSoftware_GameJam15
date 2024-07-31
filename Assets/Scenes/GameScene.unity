@@ -9035,6 +9035,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6312199925006584457, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
+      propertyPath: dropClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ab3b5ad349f09c244ab8467fb5fc81e0, type: 3}
+    - target: {fileID: 6312199925006584457, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
+      propertyPath: throwClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e9405c6f63cabc248bd6268bba51a5af, type: 3}
+    - target: {fileID: 6312199925006584457, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
+      propertyPath: pickUpClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c88ae1caefcc5a4f8f54ece27f2ea5d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

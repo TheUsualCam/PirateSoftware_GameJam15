@@ -33,6 +33,10 @@ public class HandPhysicsController : MonoBehaviour
     [SerializeField] private Vector3 throwDirection;
     [SerializeField] private bool isThrowing;
 
+    public AudioClip pickUpClip;
+    public AudioClip dropClip;
+    public AudioClip throwClip;
+
 
 
     private void OnEnable()
@@ -86,7 +90,7 @@ public class HandPhysicsController : MonoBehaviour
                 grabbedObject.localPosition = Vector3.zero;
                 grabbedObject.localRotation = Quaternion.identity;
                 overlap.attachedRigidbody.isKinematic = true;
-                
+                AudioManager.instance.PlaySoundClip(pickUpClip, _balancer, 1f);
                 return;
             }
         }
@@ -115,6 +119,7 @@ public class HandPhysicsController : MonoBehaviour
         
         _isGrabActive = false;
         isThrowing = true;
+        AudioManager.instance.PlaySoundClip(throwClip, _balancer, 1f);
 
         StartCoroutine(EThrow());
     }
@@ -171,6 +176,7 @@ public class HandPhysicsController : MonoBehaviour
             grabbedRB.isKinematic = false;
             grabbedRB.AddForce(force, ForceMode.Impulse);
             grabbedObject = null;
+            AudioManager.instance.PlaySoundClip(dropClip, _balancer, 1f);
         }
     }
 
