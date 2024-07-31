@@ -33,6 +33,8 @@ public class Station : MonoBehaviour
     
     public Ingredient.IngredientState targetState;
     public ParticleSystem[] processingParticles;
+    public float particleColourBrightness = 1.0f;
+    public float particleColourAlpha = 1.0f;
     
     [Header("Finished Ingredients")]
     public Transform finishedIngredientSpawnPoint;
@@ -67,7 +69,21 @@ public class Station : MonoBehaviour
         // Cache the item
         ProcessingIngredient newItem = new ProcessingIngredient(ingredient, Time.time + baseDuration, ingredient.GetComponent<Rigidbody>());
         heldIngredients.Add(newItem);
-        stationSliderFill.color = Ingredient.GetIngredientColour(ingredient.ingredientType);
+
+        Color ingredientColour = Ingredient.GetIngredientColour(ingredient.ingredientType);
+        
+
+        foreach (var particleSystem in processingParticles)
+        {
+            Color alphaIngredientColour = ingredientColour * particleColourAlpha;
+            ParticleSystem.MinMaxGradient particleColour = new ParticleSystem.MinMaxGradient(alphaIngredientColour,
+                new Color(ingredientColour.r * particleColourBrightness, ingredientColour.g * particleColourBrightness, ingredientColour.b * particleColourBrightness, particleColourAlpha));
+            
+            ParticleSystem.MainModule mainParticleModule = particleSystem.main;
+            mainParticleModule.startColor = particleColour;
+        }
+        
+        stationSliderFill.color = ingredientColour;
         ShowUiSlider();
 
         OnIngredientProcessingStarted?.Invoke(ingredient);

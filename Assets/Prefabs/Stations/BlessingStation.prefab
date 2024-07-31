@@ -236,6 +236,8 @@ MonoBehaviour:
   processingParticles:
   - {fileID: 9198812840178722318}
   - {fileID: 5648173285789171598}
+  particleColourBrightness: 0.75
+  particleColourAlpha: 0.5
   finishedIngredientSpawnPoint: {fileID: 1966863721194923837}
   throwStrengthRange: {x: 3, y: 6}
   throwDirection: {x: 0, y: 1, z: 0.3}
@@ -770,6 +772,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3623929650350631545, guid: 8b14f05f755b5364ea27b278759eb1b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760333634938574385, guid: 8b14f05f755b5364ea27b278759eb1b2, type: 3}
+      propertyPath: CustomDataModule.mode0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760333634938574385, guid: 8b14f05f755b5364ea27b278759eb1b2, type: 3}
+      propertyPath: CustomDataModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760333634938574385, guid: 8b14f05f755b5364ea27b278759eb1b2, type: 3}
+      propertyPath: CustomDataModule.color0.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760333634938574385, guid: 8b14f05f755b5364ea27b278759eb1b2, type: 3}
+      propertyPath: CustomDataModule.color0.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760333634938574385, guid: 8b14f05f755b5364ea27b278759eb1b2, type: 3}
+      propertyPath: CustomDataModule.color0.maxColor.r
+      value: 0.59608555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760333634938574385, guid: 8b14f05f755b5364ea27b278759eb1b2, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5713716644409356464, guid: 8b14f05f755b5364ea27b278759eb1b2, type: 3}
