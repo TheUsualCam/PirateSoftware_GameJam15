@@ -15,7 +15,7 @@ public class CauldronTrigger : MonoBehaviour
     {
         if(other.GetComponent<Ingredient>())
         {
-            recipeManager.UpdateCurrentRecipe(other.GetComponent<Ingredient>());
+            recipeManager.IngredientAddedToCauldron(other.GetComponent<Ingredient>());
             Debug.Log("Ingredient dropped in cauldron!");
             Destroy(other.gameObject);
         }

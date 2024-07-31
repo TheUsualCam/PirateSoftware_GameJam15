@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-
+    
     [Header("Blessed State")]
     public ParticleSystem blessedParticles;
 
@@ -38,6 +38,14 @@ public class Ingredient : MonoBehaviour
     public IngredientType ingredientType;
     public IngredientState ingredientState;
 
+    void FixedUpdate()
+    {
+        if (transform.position.y < -1f)
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            transform.position = new Vector3(transform.position.x, 2.5f, transform.position.z);
+        }
+    }
     public void ChangeState(IngredientState newState)
     {
         if (Equals(newState, ingredientState))

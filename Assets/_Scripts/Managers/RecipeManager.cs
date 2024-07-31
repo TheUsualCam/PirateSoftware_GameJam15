@@ -64,10 +64,11 @@ public class RecipeManager : MonoBehaviour
         uiManager.CreateNewRecipeCardUI(newRecipe);
     }
 
-    public void UpdateCurrentRecipe(Ingredient ingredient)
+    public void IngredientAddedToCauldron(Ingredient ingredient)
     {
         List<Recipe> recipesToRemove = new List<Recipe>();
         bool matchingIngredientFound = false;
+        
         // For each active recipe
         for (int recipeIndex = 0; recipeIndex < activeRecipes.Count; recipeIndex++)
         {
@@ -85,6 +86,7 @@ public class RecipeManager : MonoBehaviour
                 
                 if(typeMatchesRequiredIngredient && processMatchesRequiredIngredient && !isInCauldron)
                 {
+                    // Ingredient matches, mark is as in cauldron.
                     ingredientModifierStruct = activeRecipes[recipeIndex].requiredIngredients[i];
                     ingredientModifierStruct.isInCauldron = true;
                     activeRecipes[recipeIndex].requiredIngredients[i] = ingredientModifierStruct;
@@ -92,29 +94,39 @@ public class RecipeManager : MonoBehaviour
                     break;
                 }
             }
-
-            uiManager.UpdateCard(activeRecipes[recipeIndex]);
-
-            bool isRecipeFinished = true;
-            for(int i = 0; i < activeRecipes[recipeIndex].requiredIngredients.Count; i++)
+            
+            if (matchingIngredientFound)
             {
-                if (!activeRecipes[recipeIndex].requiredIngredients[i].isInCauldron)
+                uiManager.UpdateCard(activeRecipes[recipeIndex]);
+
+                // Check if the recipe is finished.
+                bool isRecipeFinished = true;
+                for(int i = 0; i < activeRecipes[recipeIndex].requiredIngredients.Count; i++)
                 {
-                    isRecipeFinished = false;
+                    if (!activeRecipes[recipeIndex].requiredIngredients[i].isInCauldron)
+                    {
+                        isRecipeFinished = false;
+                    }
+                }
+                
+                if (isRecipeFinished)
+                {
+                    // Recipe is complete.
+                    recipesToRemove.Add(activeRecipes[recipeIndex]);
+                    
+                    uiManager.CloseRecipeCard(activeRecipes[recipeIndex]);
+                    completedRecipes++;
+                    cauldron.ResetCorruption();
+                    uiManager.DisplayNotificationText(true);
+                    LoadNextRecipe();
                 }
             }
 
-            if (isRecipeFinished)
-            {
-                // Recipe is complete.
-                recipesToRemove.Add(activeRecipes[recipeIndex]);
-                
-                uiManager.CloseRecipeCard(activeRecipes[recipeIndex]);
-                completedRecipes++;
-                cauldron.ResetCorruption();
-                uiManager.DisplayNotificationText(true);
-                LoadNextRecipe();
-            }
+        }
+
+        if (!matchingIngredientFound)
+        {
+            spawnManager.RespawnIngredient(ingredient);
         }
 
         foreach (Recipe recipeToRemove in recipesToRemove)
