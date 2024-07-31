@@ -243,6 +243,7 @@ MonoBehaviour:
   throwDirection: {x: 0, y: 1, z: 0.3}
   throwXRange: {x: -0.4, y: 0.4}
   processingAudio: {fileID: 8300000, guid: b77281e8eb7874749ba1d5b8451954e7, type: 3}
+  releaseClip: {fileID: 0}
 --- !u!65 &1874613085391903835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -294,8 +295,8 @@ AudioSource:
   m_GameObject: {fileID: 2723063092967942137}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4142304741239163972, guid: 995eff5056e2ce3448197532ec641abc, type: 2}
+  m_audioClip: {fileID: 8300000, guid: b77281e8eb7874749ba1d5b8451954e7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

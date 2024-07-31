@@ -292,11 +292,14 @@ MonoBehaviour:
   processingParticles:
   - {fileID: 461475534504743447}
   - {fileID: 4012027401738881943}
+  particleColourBrightness: 1
+  particleColourAlpha: 1
   finishedIngredientSpawnPoint: {fileID: 3347721426000555217}
   throwStrengthRange: {x: 3, y: 6}
   throwDirection: {x: 0, y: 1, z: 0.3}
   throwXRange: {x: -0.4, y: 0.4}
   processingAudio: {fileID: 8300000, guid: 9a83872050e77e54e946ea2e4ddb7be5, type: 3}
+  releaseClip: {fileID: 0}
 --- !u!65 &841788145156251104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -348,8 +351,8 @@ AudioSource:
   m_GameObject: {fileID: 4852883084326658917}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4142304741239163972, guid: 995eff5056e2ce3448197532ec641abc, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 9a83872050e77e54e946ea2e4ddb7be5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
