@@ -138,7 +138,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &4104454583771185668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,27 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9fe4f73f3cade46bc2d22f0f526356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiSprite: {fileID: 0}
-  MeatSprites:
-  - {fileID: 21300000, guid: 280bc6f6f202f3c4ea631130df6f2211, type: 3}
-  - {fileID: 21300000, guid: ad5a2c3d1861e6843b63ae4a19b32c63, type: 3}
-  - {fileID: 21300000, guid: a1f108382b766044caaa55f13400c99b, type: 3}
-  - {fileID: 21300000, guid: 76486fea134491745a58c0159f99c88f, type: 3}
-  PlantSprites:
-  - {fileID: 21300000, guid: 1c7583e0855927544ad9c7f1d6a7c3cb, type: 3}
-  - {fileID: 21300000, guid: e683e7497838036458b7d6090b06788d, type: 3}
-  - {fileID: 21300000, guid: 2f406c47d8a28cb468518d152570c5fc, type: 3}
-  - {fileID: 21300000, guid: 00c249a431150d740b348114ef44a01c, type: 3}
-  MineralSprites:
-  - {fileID: 21300000, guid: a012139b0c061d6449867c90009460fb, type: 3}
-  - {fileID: 21300000, guid: 1d041bc570318e44b94a8eeda392c2a1, type: 3}
-  - {fileID: 21300000, guid: af64e55442ffd944788618b7e9092825, type: 3}
-  - {fileID: 21300000, guid: daed5c7f70a32ab4d86498ccadff4983, type: 3}
-  MagicSprites:
-  - {fileID: 21300000, guid: 7820d6686a0e7604fbe137a838de6893, type: 3}
-  - {fileID: 21300000, guid: 6a386d5a9703fec47be4062b2e31810d, type: 3}
-  - {fileID: 21300000, guid: adb00e9615eeda64ea541aee937bb7e8, type: 3}
-  - {fileID: 21300000, guid: b6906488f1c4ed442a7df7247efdea64, type: 3}
   blessedParticles: {fileID: 985220933199116705}
   extractedMesh: {fileID: 0}
   extractedMaterials: []
