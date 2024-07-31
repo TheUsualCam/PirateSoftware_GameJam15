@@ -806,14 +806,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cauldron
       objectReference: {fileID: 0}
-    - target: {fileID: 4910118300513033319, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
-      propertyPath: prewarm
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7765885775908355415, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7765885775908355415, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

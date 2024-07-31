@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 473e54b5100f1cf4a8b733be451917ec
+guid: 4f28627d6a7e6c9439fa3910626e6929
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: cb5ade385caffb149911e959c4946524, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: potion
+    second: {fileID: 2100000, guid: dd55b68b8f45b17439254d18f6d21b8e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
