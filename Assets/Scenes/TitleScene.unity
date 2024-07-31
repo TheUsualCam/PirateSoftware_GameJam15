@@ -603,6 +603,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1185350845778579953, guid: 82b7451e806bfdb4b8774262c76d05fa, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1469624855560522141, guid: 2058ba3c0d46ee144a7e26b3439546d1, type: 3}
     - target: {fileID: 1987854349067040981, guid: 82b7451e806bfdb4b8774262c76d05fa, type: 3}
       propertyPath: m_Name
       value: Environment
@@ -650,6 +654,10 @@ PrefabInstance:
     - target: {fileID: 7468337700227465707, guid: 82b7451e806bfdb4b8774262c76d05fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854434172583583758, guid: 82b7451e806bfdb4b8774262c76d05fa, type: 3}
+      propertyPath: mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7878139145170462200, guid: 82b7451e806bfdb4b8774262c76d05fa, type: 3}
       propertyPath: m_AnchorMax.x
