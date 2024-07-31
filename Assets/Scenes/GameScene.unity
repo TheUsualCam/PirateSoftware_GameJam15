@@ -2597,6 +2597,18 @@ PrefabInstance:
       value: RecipeManager
       objectReference: {fileID: 0}
     - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
+      propertyPath: completeRecipeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eda1acaf93bbe87499a0abdfe05831e0, type: 3}
+    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
+      propertyPath: correctIngredientClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 972846a2198793c4c9b90e2466da95bb, type: 3}
+    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
+      propertyPath: incorrectIngredientClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 530dc879ed67e914f8cf939aff926f5e, type: 3}
+    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
       propertyPath: twoIngRecipes.Array.size
       value: 10
       objectReference: {fileID: 0}
@@ -2855,6 +2867,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cauldron
       objectReference: {fileID: 0}
+    - target: {fileID: 6566142435961795345, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
+      propertyPath: corruptionClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 69fe7f3c45290f4458516b7780869882, type: 3}
+    - target: {fileID: 6566142435961795345, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
+      propertyPath: completeRecipeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eda1acaf93bbe87499a0abdfe05831e0, type: 3}
     - target: {fileID: 6566142435961795345, guid: ca4b5b77f5b325e419850e34deef0250, type: 3}
       propertyPath: corruptionGraceCooldown
       value: 0
@@ -4804,6 +4824,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7876104238723066241, guid: e91936b1dfb102043a3d4b380bd7a810, type: 3}
+      propertyPath: uiClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 426cd837bbb4ab64c9df92bfd2a1d0bd, type: 3}
     - target: {fileID: 7876104238723066241, guid: e91936b1dfb102043a3d4b380bd7a810, type: 3}
       propertyPath: recipeWindow
       value: 
@@ -8345,11 +8369,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 295315376169670050, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.013626652
+      value: 0.013626683
       objectReference: {fileID: 0}
     - target: {fileID: 295315376169670050, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006955762
+      value: -0.0069557778
       objectReference: {fileID: 0}
     - target: {fileID: 5929969687240033659, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_Name
@@ -8425,11 +8449,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7249020413888515854, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.013626652
+      value: 0.013626683
       objectReference: {fileID: 0}
     - target: {fileID: 7249020413888515854, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006955762
+      value: -0.0069557778
       objectReference: {fileID: 0}
     - target: {fileID: 8289628092971140367, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_Follow

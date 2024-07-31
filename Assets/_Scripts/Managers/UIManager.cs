@@ -22,6 +22,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform recipeCardContainer;
     [SerializeField] private GameObject[] recipeCardPrefabs;
 
+    [Space, Header("Audio")]
+    [SerializeField] private AudioClip uiClip;
+
     private void Start()
     {
         notificationText.enabled = false;
@@ -128,11 +131,13 @@ public class UIManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        AudioManager.instance.PlaySoundClip(uiClip, recipeCardContainer, 1.0f);
         SceneManager.LoadSceneAsync(1);
     }
 
     public void ExitToMainMenu()
     {
+        AudioManager.instance.PlaySoundClip(uiClip, transform, 1.0f);
         SceneManager.LoadSceneAsync(0);
     }
 }

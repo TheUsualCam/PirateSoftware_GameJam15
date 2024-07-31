@@ -18,6 +18,8 @@ public class Cauldron : MonoBehaviour
     
     [SerializeField]private Slider corruptionSlider = null;
 
+    public AudioClip corruptionClip;
+
     private GameManager gameManager;
     private RecipeManager recipeManager;
     private UIManager uiManager;
@@ -54,6 +56,7 @@ public class Cauldron : MonoBehaviour
     void Corruption()
     {
         currentCorruption = 0.0f;
+        AudioManager.instance.PlaySoundClip(corruptionClip, this.transform, 1f);
         StartGraceTime();
         uiManager.DisplayNotificationText(false);
         OnCauldronCorrupted?.Invoke();

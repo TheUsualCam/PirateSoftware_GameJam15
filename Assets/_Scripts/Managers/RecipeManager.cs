@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Video;
 using Random = UnityEngine.Random;
 
 public class RecipeManager : MonoBehaviour
@@ -23,6 +24,10 @@ public class RecipeManager : MonoBehaviour
 
     public List<Recipe> activeRecipes;
     private RequiredIngredient ingredientModifierStruct;
+
+    public AudioClip correctIngredientClip;
+    public AudioClip incorrectIngredientClip;
+    public AudioClip completeRecipeClip;
 
     private void OnEnable()
     {
@@ -91,6 +96,7 @@ public class RecipeManager : MonoBehaviour
                     ingredientModifierStruct.isInCauldron = true;
                     activeRecipes[recipeIndex].requiredIngredients[i] = ingredientModifierStruct;
                     matchingIngredientFound = true;
+                    AudioManager.instance.PlaySoundClip(correctIngredientClip, this.transform, 1f);
                     break;
                 }
             }
@@ -113,6 +119,7 @@ public class RecipeManager : MonoBehaviour
                 {
                     // Recipe is complete.
                     recipesToRemove.Add(activeRecipes[recipeIndex]);
+                    AudioManager.instance.PlaySoundClip(completeRecipeClip, this.transform, 1f);
                     
                     uiManager.CloseRecipeCard(activeRecipes[recipeIndex]);
                     completedRecipes++;
@@ -127,6 +134,7 @@ public class RecipeManager : MonoBehaviour
         if (!matchingIngredientFound)
         {
             spawnManager.RespawnIngredient(ingredient);
+            AudioManager.instance.PlaySoundClip(incorrectIngredientClip, this.transform, 1f);
         }
 
         foreach (Recipe recipeToRemove in recipesToRemove)
