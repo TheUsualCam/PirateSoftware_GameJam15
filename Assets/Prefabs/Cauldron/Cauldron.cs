@@ -59,6 +59,7 @@ public class Cauldron : MonoBehaviour
         AudioManager.instance.PlaySoundClip(corruptionClip, this.transform, 1f);
         StartGraceTime();
         uiManager.DisplayNotificationText(false);
+        recipeManager.RemoveCorruptedRecipe();
         OnCauldronCorrupted?.Invoke();
     }
 

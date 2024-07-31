@@ -168,4 +168,10 @@ public class RecipeManager : MonoBehaviour
             availableRecipes = fiveIngRecipes;
         }
     }
+
+    public void RemoveCorruptedRecipe()
+    {
+        uiManager.CloseRecipeCard(activeRecipes[0]);
+        activeRecipes.RemoveAt(0);
+    }
 }
