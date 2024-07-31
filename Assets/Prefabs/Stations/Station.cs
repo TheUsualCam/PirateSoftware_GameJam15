@@ -47,6 +47,7 @@ public class Station : MonoBehaviour
     [Header("Audio")] 
     public AudioClip processingAudio;
     private AudioSource processingAudioSource;
+    public AudioClip releaseClip;
 
     private void Awake()
     {
@@ -208,6 +209,7 @@ public class Station : MonoBehaviour
         processingIngredient._rigidbody.AddForce(finishedIngredientSpawnPoint.TransformDirection(throwDirection) * Random.Range(throwStrengthRange.x, throwStrengthRange.y), ForceMode.Impulse);
         stationSlider.value = 0;
         stationSlider.gameObject.SetActive(false);
+        AudioManager.instance.PlaySoundClip(releaseClip, ingredient.transform, 1f);
     }
 
     IEnumerator ReEnableMeshCollider(Ingredient ingredient)
