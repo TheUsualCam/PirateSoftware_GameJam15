@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RecipeManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class RecipeManager : MonoBehaviour
     [SerializeField] private List<Recipe> fourIngRecipes = new List<Recipe>();
     [SerializeField] private List<Recipe> fiveIngRecipes = new List<Recipe>();
 
-    private List<Recipe> activeRecipes = new List<Recipe>();
+    private List<Recipe> availableRecipes = new List<Recipe>();
 
     private int completedRecipes = 0;
 
@@ -20,7 +21,7 @@ public class RecipeManager : MonoBehaviour
     private GameManager gameManager;
     private Cauldron cauldron;
 
-    private Recipe currentRecipe;
+    public List<Recipe> activeRecipes;
     private RequiredIngredient ingredientModifierStruct;
 
     private void OnEnable()
@@ -49,57 +50,80 @@ public class RecipeManager : MonoBehaviour
     {
         UpdateActiveRecipes();
 
-        currentRecipe = activeRecipes[UnityEngine.Random.Range(0, activeRecipes.Count)];
-
-        for(int i = 0; i < currentRecipe.requiredIngredients.Count; i++)
+        Recipe newRecipe = availableRecipes[Random.Range(0, availableRecipes.Count)];
+        
+        activeRecipes.Add(newRecipe);
+        for(int i = 0; i < newRecipe.requiredIngredients.Count; i++)
         {
-            ingredientModifierStruct = currentRecipe.requiredIngredients[i];
+            ingredientModifierStruct = newRecipe.requiredIngredients[i];
             ingredientModifierStruct.isInCauldron = false;
-            currentRecipe.requiredIngredients[i] = ingredientModifierStruct;
+            newRecipe.requiredIngredients[i] = ingredientModifierStruct;
         }
 
-        spawnManager.SpawnRequiredIngredients(currentRecipe.requiredIngredients);
-        uiManager.UpdateRecipeUI(currentRecipe);
+        spawnManager.SpawnRequiredIngredients(newRecipe.requiredIngredients);
+        uiManager.CreateNewRecipeCardUI(newRecipe);
     }
 
     public void UpdateCurrentRecipe(Ingredient ingredient)
     {
-        for(int i = 0; i < currentRecipe.requiredIngredients.Count; i++)
-        { 
-            ingredientModifierStruct = currentRecipe.requiredIngredients[i];
-
-            if(ingredient.ingredientType == currentRecipe.requiredIngredients[i].ingredient.ingredientType && ingredient.ingredientState.ToString() == currentRecipe.requiredIngredients[i].method.ToString())
+        List<Recipe> recipesToRemove = new List<Recipe>();
+        bool matchingIngredient = false;
+        // For each active recipe
+        for (int recipeIndex = 0; recipeIndex < activeRecipes.Count; recipeIndex++)
+        {
+            if (matchingIngredient)
             {
-                ingredientModifierStruct.isInCauldron = true;
-                currentRecipe.requiredIngredients[i] = ingredientModifierStruct;
                 break;
             }
-            else if(i == currentRecipe.requiredIngredients.Count - 1)
+            
+            // For each required ingredient in the recipe
+            for(int i = 0; i < activeRecipes[recipeIndex].requiredIngredients.Count; i++)
             {
-                cauldron.AddCorruption(cauldron.GetCorruptionPerBadIngredient());
-                spawnManager.RespawnIngredient(ingredient);
+                bool typeMatchesRequiredIngredient = ingredient.ingredientType == activeRecipes[recipeIndex].requiredIngredients[i].ingredient;
+                bool processMatchesRequiredIngredient = ingredient.ingredientState == activeRecipes[recipeIndex].requiredIngredients[i].method;
+                bool isInCauldron = activeRecipes[recipeIndex].requiredIngredients[i].isInCauldron;
+                if(typeMatchesRequiredIngredient && processMatchesRequiredIngredient && !isInCauldron)
+                {
+                    ingredientModifierStruct = activeRecipes[recipeIndex].requiredIngredients[i];
+                    ingredientModifierStruct.isInCauldron = true;
+                    activeRecipes[recipeIndex].requiredIngredients[i] = ingredientModifierStruct;
+                    matchingIngredient = true;
+                    break;
+                }
+                
+                if(i == activeRecipes[recipeIndex].requiredIngredients.Count - 1)
+                {
+                    cauldron.AddCorruption(cauldron.GetCorruptionPerBadIngredient());
+                    spawnManager.RespawnIngredient(ingredient);
+                }
             }
+
+            uiManager.UpdateCard(activeRecipes[recipeIndex]);
+
+            for(int i = 0; i < activeRecipes[recipeIndex].requiredIngredients.Count; i++)
+            {
+                if (!activeRecipes[recipeIndex].requiredIngredients[i].isInCauldron)
+                {
+                    return;
+                }
+            }
+
+            // Recipe is complete.
+            recipesToRemove.Add(activeRecipes[recipeIndex]);
+            
+            uiManager.CloseRecipeCard(activeRecipes[recipeIndex]);
+            completedRecipes++;
+            cauldron.ResetCorruption();
+            uiManager.DisplayNotificationText(true);
+            LoadNextRecipe();
+            
         }
 
-        uiManager.UpdateRecipeUI(currentRecipe);
-
-        for(int i = 0; i < currentRecipe.requiredIngredients.Count; i++)
+        foreach (Recipe recipeToRemove in recipesToRemove)
         {
-            if (!currentRecipe.requiredIngredients[i].isInCauldron)
-            {
-                return;
-            }
+            activeRecipes.Remove(recipeToRemove);
         }
-
-        completedRecipes++;
-        cauldron.ResetCorruption();
-        uiManager.DisplayNotificationText(true);
-        LoadNextRecipe();
-    }
-
-    public Recipe GetCurrentRecipe()
-    {
-        return currentRecipe;
+        recipesToRemove.Clear();
     }
 
     public int GetNumberOfCompletedRecipes()
@@ -111,19 +135,19 @@ public class RecipeManager : MonoBehaviour
     {
         if (completedRecipes <= 3)
         {
-            activeRecipes = twoIngRecipes;
+            availableRecipes = twoIngRecipes;
         }
         else if (completedRecipes > 3 && completedRecipes <= 6)
         {
-            activeRecipes = threeIngRecipes;
+            availableRecipes = threeIngRecipes;
         }
         else if (completedRecipes > 6 && completedRecipes <= 10)
         {
-            activeRecipes = fourIngRecipes;
+            availableRecipes = fourIngRecipes;
         }
         else
         {
-            activeRecipes = fiveIngRecipes;
+            availableRecipes = fiveIngRecipes;
         }
     }
 }

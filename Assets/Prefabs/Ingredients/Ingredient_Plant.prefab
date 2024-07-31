@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104454583771185668, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: ingredientType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4104454583771185668, guid: 46146a45cd117cd488967ab409eab775, type: 3}
       propertyPath: driedMaterials.Array.size

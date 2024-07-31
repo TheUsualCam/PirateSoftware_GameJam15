@@ -55,7 +55,6 @@ public class Cauldron : MonoBehaviour
     {
         currentCorruption = 0.0f;
         StartGraceTime();
-        recipeManager.LoadNextRecipe();
         uiManager.DisplayNotificationText(false);
         OnCauldronCorrupted?.Invoke();
     }

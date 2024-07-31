@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    [Header("List = Meat, Plant, Mineral, Magic")]
+    public GameObject[] ingredientPrefabs;
     [Header("Ingredient Spawner")]
     [SerializeField] private Transform ingredientSpawnPosition;
     
@@ -18,28 +20,16 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnRequiredIngredients(List<RequiredIngredient> requiredIngredients)
     {
-        /*
-        for (int i = spawnedIngredients.Count - 1; i > 0; i--)
-        {
-            if (spawnedIngredients[i])
-            {
-                Destroy(spawnedIngredients[i].gameObject);
-            }
-        }
-
-        spawnedIngredients.Clear();
-        */
-
         for (int i = 0; i < requiredIngredients.Count; i++)
         {
-            newIngredient = Instantiate(requiredIngredients[i].ingredient, ingredientSpawnPosition.position, Quaternion.identity);
+            newIngredient = Instantiate(ingredientPrefabs[(int)requiredIngredients[i].ingredient], ingredientSpawnPosition.position, Quaternion.identity).GetComponent<Ingredient>();
             spawnedIngredients.Add(newIngredient);
         }
     }
 
     public void RespawnIngredient(Ingredient ingredient)
     {
-        newIngredient = Instantiate(ingredient, ingredientSpawnPosition.position, Quaternion.identity);
+        newIngredient = Instantiate(ingredientPrefabs[(int)ingredient.ingredientType], ingredientSpawnPosition.position, Quaternion.identity).GetComponent<Ingredient>();
         spawnedIngredients.Add(newIngredient);
     }
 }

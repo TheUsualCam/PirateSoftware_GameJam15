@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
+
     [Header("Blessed State")]
     public ParticleSystem blessedParticles;
 
@@ -70,6 +71,10 @@ public class Ingredient : MonoBehaviour
         GetComponent<MeshFilter>().mesh = currentMesh;
         GetComponent<MeshRenderer>().materials = currentMaterials;
         GetComponent<MeshCollider>().sharedMesh = currentMesh;
-        transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        GetComponent<MeshCollider>().sharedMesh = currentMesh;
+        if (ingredientState != IngredientState.Blessed)
+        {
+            transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        }
     }
 }

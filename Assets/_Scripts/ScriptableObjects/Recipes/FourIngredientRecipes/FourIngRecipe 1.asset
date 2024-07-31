@@ -17,10 +17,10 @@ MonoBehaviour:
     method: 2
     isInCauldron: 0
   - ingredient: {fileID: 6085439677919548309, guid: b3bc4be664551cb4b80d61f2d90b7784, type: 3}
-    method: 0
+    method: 3
     isInCauldron: 0
   - ingredient: {fileID: 6085439677919548309, guid: fe25b25e3478128439b93486aaf8c42f, type: 3}
-    method: 0
+    method: 2
     isInCauldron: 0
   - ingredient: {fileID: 6085439677919548309, guid: d364d3f1b0b8f5547af2ce3e251ce532, type: 3}
     method: 1

@@ -15,8 +15,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float textDisplayDuration = 2.0f;
     [SerializeField] private GameObject recipeWindow;
     [SerializeField] private GameObject gameOverWindow;
-    [SerializeField] private List<TextMeshProUGUI> requiredIngredientsText = new List<TextMeshProUGUI>();
     [SerializeField] private Slider cauldronCorruptionSlider;
+    
+    [Header("Recipe Cards")]
+    [SerializeField] private List<RecipeCard> recipeCards = new List<RecipeCard>();
+    [SerializeField] private Transform recipeCardContainer;
+    [SerializeField] private GameObject[] recipeCardPrefabs;
 
     private void Start()
     {
@@ -50,19 +54,40 @@ public class UIManager : MonoBehaviour
         timerText.text = formattedMins + " : " + formattedSecs;
     }
 
-    public void UpdateRecipeUI(Recipe recipe)
+    public void CreateNewRecipeCardUI(Recipe recipe)
     {
-        for (int i = 0; i < requiredIngredientsText.Count; i++)
+        RecipeCard newRecipeCard = Instantiate(recipeCardPrefabs[recipe.requiredIngredients.Count-1], recipeCardContainer).GetComponent<RecipeCard>();
+        recipeCards.Add(newRecipeCard);
+        newRecipeCard.Initialize(recipe);
+    }
+
+    public void UpdateCard(Recipe updatedRecipe)
+    {
+        foreach (RecipeCard card in recipeCards)
         {
-            if (i < recipe.requiredIngredients.Count && !recipe.requiredIngredients[i].isInCauldron)
+            if (card.recipe == updatedRecipe)
             {
-                requiredIngredientsText[i].enabled = true;
-                requiredIngredientsText[i].text = recipe.requiredIngredients[i].ingredient.ingredientName + ", " + recipe.requiredIngredients[i].method;
+                card.UpdateCard(updatedRecipe);
             }
-            else
-            {
-                requiredIngredientsText[i].enabled = false;
-            }
+        }
+    }
+
+    public void CloseRecipeCard(Recipe recipeToClose)
+    {
+        RecipeCard cardToClose = null;
+        
+        foreach(RecipeCard card in recipeCards)
+        {
+            if (card.recipe != recipeToClose) continue;
+            
+            cardToClose = card;
+            break;
+        }
+
+        if (cardToClose)
+        {
+            cardToClose.CloseCard();
+            recipeCards.Remove(cardToClose);
         }
     }
 

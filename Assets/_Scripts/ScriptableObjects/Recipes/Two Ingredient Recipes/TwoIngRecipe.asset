@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TwoIngRecipe
   m_EditorClassIdentifier: 
   requiredIngredients:
-  - ingredient: {fileID: 6085439677919548309, guid: fe25b25e3478128439b93486aaf8c42f, type: 3}
-    method: 1
-    isInCauldron: 0
-  - ingredient: {fileID: 6085439677919548309, guid: 97f591acfb0e58d419bfcfaa99ff5bfd, type: 3}
-    method: 2
+  - ingredient: 0
+    method: 0
+    isInCauldron: 1
+  - ingredient: 1
+    method: 0
     isInCauldron: 0
