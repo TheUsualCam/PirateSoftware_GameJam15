@@ -21,7 +21,7 @@ public class PlayerPowerUp : MonoBehaviour
         isActive = true;
         _finishTime = Time.time + duration;
         AudioManager.instance.PlaySoundClip(powerupStart, this.GetComponentInParent<Transform>(), 1f);
-        GetComponent<AudioSource>().volume = 1f;
+        GetComponent<AudioSource>().volume = 0.6f;
 
         foreach (var particleSystem in powerUpParticles)
         {
