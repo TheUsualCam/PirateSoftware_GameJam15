@@ -180,6 +180,8 @@ public class Station : MonoBehaviour
     {
         Ingredient ingredient = processingIngredient._ingredient;
         ingredient.transform.SetParent(null);
+        ingredient.GetComponent<MeshCollider>().enabled = false;
+        StartCoroutine(ReEnableMeshCollider(ingredient));
         ingredient.gameObject.SetActive(true);
         ingredient.ChangeState(targetState);
         
@@ -189,5 +191,11 @@ public class Station : MonoBehaviour
         processingIngredient._rigidbody.AddForce(finishedIngredientSpawnPoint.TransformDirection(throwDirection) * Random.Range(throwStrengthRange.x, throwStrengthRange.y), ForceMode.Impulse);
         stationSlider.value = 0;
         stationSlider.gameObject.SetActive(false);
+    }
+
+    IEnumerator ReEnableMeshCollider(Ingredient ingredient)
+    {
+        yield return new WaitForSeconds(0.2f);
+        ingredient.GetComponent<MeshCollider>().enabled = true;
     }
 }

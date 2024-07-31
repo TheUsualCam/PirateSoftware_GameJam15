@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673454881998394606}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47,12 +47,44 @@ MonoBehaviour:
   twoIngRecipes:
   - {fileID: 11400000, guid: 3b0047fc29b5f1545b555f9e0b63a8c0, type: 2}
   - {fileID: 11400000, guid: 3317ae5d04ecfd24698be096b3a17387, type: 2}
+  - {fileID: 11400000, guid: 6eaf1960003cd184e9e45d8b7e6ceb43, type: 2}
+  - {fileID: 11400000, guid: ba3444c4e2088734390cb2ecc612320b, type: 2}
+  - {fileID: 11400000, guid: 00d325f610f88e04794818121c89c67a, type: 2}
+  - {fileID: 11400000, guid: 2b595a532d8b2e442888e51bd596be42, type: 2}
+  - {fileID: 11400000, guid: ac59cc4eb99f2844499aa38231bb9df7, type: 2}
+  - {fileID: 11400000, guid: 5040acec795acc34ca4f087aed6753f3, type: 2}
+  - {fileID: 11400000, guid: 726ee6c4c183c734f81e937f54ab2554, type: 2}
+  - {fileID: 11400000, guid: a6a0464838f93d0438f6566d989a00f9, type: 2}
   threeIngRecipes:
   - {fileID: 11400000, guid: ec273e2221687a0449ff4dfef822c3a7, type: 2}
   - {fileID: 11400000, guid: c83ab519ba5017d4abb890088d3fe47b, type: 2}
+  - {fileID: 11400000, guid: 66f63adc5cda2e743907cf7daf9c4002, type: 2}
+  - {fileID: 11400000, guid: f6bc6387cb06c8740af2429cb9a85a18, type: 2}
+  - {fileID: 11400000, guid: 18743591124482b4ebe09a5be9c5a968, type: 2}
+  - {fileID: 11400000, guid: a9751e450ea8af542a92262e0bb5f990, type: 2}
+  - {fileID: 11400000, guid: 0daa3d8ae43c47b4c8905f04fc259d33, type: 2}
+  - {fileID: 11400000, guid: d14c5eb79b34d78449348b261f164651, type: 2}
+  - {fileID: 11400000, guid: f4281af79cc04414ab849c15352c88c1, type: 2}
+  - {fileID: 11400000, guid: 281a089fb3bcab2439e95a90b4629ef8, type: 2}
   fourIngRecipes:
   - {fileID: 11400000, guid: b809f8b5a5c918d4d8be162df2097624, type: 2}
   - {fileID: 11400000, guid: 98dc9a1caa4e818498e9d8e3fe799d75, type: 2}
+  - {fileID: 11400000, guid: 1ef050cdf94369f4389deb2aca3a40ae, type: 2}
+  - {fileID: 11400000, guid: 39dd57de5ce62f944ac685befc0be399, type: 2}
+  - {fileID: 11400000, guid: 0e4e85a323ae65543b24be748830858e, type: 2}
+  - {fileID: 11400000, guid: 91aa2a33bc3aa934192484b6dd35f5d5, type: 2}
+  - {fileID: 11400000, guid: 633afa858415907409c917b0114cf247, type: 2}
+  - {fileID: 11400000, guid: 6a9b321b7884da44191912aecee85681, type: 2}
+  - {fileID: 11400000, guid: 8153f91e777e4e64d9f6a84175b6247e, type: 2}
+  - {fileID: 11400000, guid: 08aa546ea4797624e8b8592e5f764c1f, type: 2}
   fiveIngRecipes:
   - {fileID: 11400000, guid: 1e1b2cd7159860442a93ec970b80266b, type: 2}
   - {fileID: 11400000, guid: b678745f35c8bd44a83d5bcdaa8d892f, type: 2}
+  - {fileID: 11400000, guid: 38897462787dc2b45bc84d4ca2ceae41, type: 2}
+  - {fileID: 11400000, guid: 55111e666239e364ba51b31215c2c998, type: 2}
+  - {fileID: 11400000, guid: b7fb9c2fa659e5446b9a9a54317c6b01, type: 2}
+  - {fileID: 11400000, guid: d84eac427b7219b4d88e937ecb9dffe3, type: 2}
+  - {fileID: 11400000, guid: 82bca6dbbe61f5e42aa892e807e73d35, type: 2}
+  - {fileID: 11400000, guid: 666749d4e2d1fbe4ab30665488fc9cbc, type: 2}
+  - {fileID: 11400000, guid: 31a6ed080e0f3474ab6cd60fda1727f9, type: 2}
+  - {fileID: 11400000, guid: 1bcbe1eb4f8abef49860e780b796cdc9, type: 2}

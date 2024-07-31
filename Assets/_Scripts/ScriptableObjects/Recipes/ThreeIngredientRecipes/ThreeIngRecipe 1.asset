@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: ThreeIngRecipe 1
   m_EditorClassIdentifier: 
   requiredIngredients:
-  - ingredient: {fileID: 6085439677919548309, guid: fe25b25e3478128439b93486aaf8c42f, type: 3}
-    method: 0
+  - ingredient: 1
+    method: 3
     isInCauldron: 0
-  - ingredient: {fileID: 6085439677919548309, guid: b3bc4be664551cb4b80d61f2d90b7784, type: 3}
-    method: 2
-    isInCauldron: 0
-  - ingredient: {fileID: 6085439677919548309, guid: 97f591acfb0e58d419bfcfaa99ff5bfd, type: 3}
+  - ingredient: 1
     method: 1
+    isInCauldron: 0
+  - ingredient: 2
+    method: 2
     isInCauldron: 0

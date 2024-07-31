@@ -2598,7 +2598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
       propertyPath: twoIngRecipes.Array.size
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
       propertyPath: twoIngRecipes.Array.data[1]
@@ -2608,6 +2608,34 @@ PrefabInstance:
       propertyPath: twoIngRecipes.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 219dd10d0d8bd6445af73a8bb7570f56, type: 2}
+    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
+      propertyPath: twoIngRecipes.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: ba3444c4e2088734390cb2ecc612320b, type: 2}
+    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
+      propertyPath: twoIngRecipes.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 00d325f610f88e04794818121c89c67a, type: 2}
+    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
+      propertyPath: twoIngRecipes.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b595a532d8b2e442888e51bd596be42, type: 2}
+    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
+      propertyPath: twoIngRecipes.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: ac59cc4eb99f2844499aa38231bb9df7, type: 2}
+    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
+      propertyPath: twoIngRecipes.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5040acec795acc34ca4f087aed6753f3, type: 2}
+    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
+      propertyPath: twoIngRecipes.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 726ee6c4c183c734f81e937f54ab2554, type: 2}
+    - target: {fileID: 3276847242542648657, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
+      propertyPath: twoIngRecipes.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: a6a0464838f93d0438f6566d989a00f9, type: 2}
     - target: {fileID: 3683594813731467510, guid: 0d44fbb4cfa913342ba73080712cdb2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
