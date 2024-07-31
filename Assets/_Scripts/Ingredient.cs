@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
+    [Header("Blessed State")]
     public ParticleSystem blessedParticles;
-    public ParticleSystem driedParticles;
+
+    [Space, Header("Extracted State")]
+    public Mesh extractedMesh;
+    public Material[] extractedMaterials;
     public ParticleSystem ExtractedParticles;
-    
+
+    [Space, Header("Dried State")]
+    public Mesh driedMesh;
+    public Material[] driedMaterials;
+    public ParticleSystem driedParticles;
+
     public enum IngredientType
     {
         Meat,
@@ -36,6 +45,8 @@ public class Ingredient : MonoBehaviour
         }
         
         ingredientState = newState;
+        Mesh currentMesh = GetComponent<MeshFilter>().mesh;
+        Material[] currentMaterials = GetComponent<MeshRenderer>().materials;
 
         switch (ingredientState)
         {
@@ -43,13 +54,22 @@ public class Ingredient : MonoBehaviour
                 blessedParticles.Play();
                 break;
             case IngredientState.Dried:
+                currentMesh = driedMesh;
+                currentMaterials = driedMaterials;
                 driedParticles.Play();
                 break;
             case IngredientState.Extracted:
+                currentMesh = extractedMesh;
+                currentMaterials = extractedMaterials;
                 ExtractedParticles.Play();
                 break;
             default:
                 break;
         }
+
+        GetComponent<MeshFilter>().mesh = currentMesh;
+        GetComponent<MeshRenderer>().materials = currentMaterials;
+        GetComponent<MeshCollider>().sharedMesh = currentMesh;
+        transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
     }
 }
