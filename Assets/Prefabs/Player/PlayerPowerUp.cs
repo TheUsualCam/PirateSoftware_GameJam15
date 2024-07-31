@@ -14,11 +14,15 @@ public class PlayerPowerUp : MonoBehaviour
     [SerializeField] private AnimationCurve speedMultiplierCurve;
     [SerializeField] private float throwMultiplier;
 
+    public AudioClip powerupStart;
+
     public void StartPowerUp()
     {
         isActive = true;
         _finishTime = Time.time + duration;
-        
+        AudioManager.instance.PlaySoundClip(powerupStart, this.GetComponentInParent<Transform>(), 1f);
+        GetComponent<AudioSource>().volume = 1f;
+
         foreach (var particleSystem in powerUpParticles)
         {
             particleSystem.Play();
@@ -34,6 +38,8 @@ public class PlayerPowerUp : MonoBehaviour
         {
             particleSystem.Stop();
         }
+
+        GetComponent<AudioSource>().volume = 0f;
     }
 
     private void Update()

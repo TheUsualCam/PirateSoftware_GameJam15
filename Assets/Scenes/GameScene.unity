@@ -4221,6 +4221,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: -944628639613478452, guid: 07a8d080e322373418b0a419eabf5c45, type: 3}
   m_ActionId: da857bbd-d1f9-4e57-a663-cf9acff1fb7a
+--- !u!1 &1329565320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 305817134260705307, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
+  m_PrefabInstance: {fileID: 7907271638154610706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1350560037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3531483586671846598, guid: ca2663b174da7d043b7642608ded3672, type: 3}
@@ -5824,7 +5829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7017686972353734690, guid: a285ae6ba30152544bba55a2e235aa4b, type: 3}
       propertyPath: gameTimerInMinutes
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6776,6 +6781,102 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4199819983085938630, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
   m_PrefabInstance: {fileID: 7907271638154610706}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1799047576
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329565320}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 575697902e0152b46b289993ee4eec7a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1804791307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8363,6 +8464,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7694266138949657646, guid: 85049564cabaefb4fab01bc6c0ea4185, type: 3}
+      propertyPath: releaseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e9405c6f63cabc248bd6268bba51a5af, type: 3}
+    - target: {fileID: 7694266138949657646, guid: 85049564cabaefb4fab01bc6c0ea4185, type: 3}
       propertyPath: baseDuration
       value: 12
       objectReference: {fileID: 0}
@@ -8617,6 +8722,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6840281603240735814, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
+      propertyPath: releaseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e9405c6f63cabc248bd6268bba51a5af, type: 3}
     - target: {fileID: 6840281603240735814, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
       propertyPath: baseDuration
       value: 12
@@ -8998,6 +9107,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3599622868795758242, guid: 77383da15d71fe246b4f52183d3a51e9, type: 3}
+      propertyPath: releaseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e9405c6f63cabc248bd6268bba51a5af, type: 3}
     - target: {fileID: 6467736592230708435, guid: 77383da15d71fe246b4f52183d3a51e9, type: 3}
       propertyPath: m_Name
       value: DryingStation
@@ -9031,6 +9144,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4179511247705529264, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
+      propertyPath: powerupLoop
+      value: 
+      objectReference: {fileID: 8300000, guid: 575697902e0152b46b289993ee4eec7a, type: 3}
+    - target: {fileID: 4179511247705529264, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
+      propertyPath: powerupStart
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e5c7cff78189fd4cb6d726de1355348, type: 3}
     - target: {fileID: 4199819983085938630, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.053
@@ -9086,7 +9207,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 305817134260705307, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1799047576}
   m_SourcePrefab: {fileID: 100100000, guid: 69292c2eeba8be346af9b354ecfd418c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
