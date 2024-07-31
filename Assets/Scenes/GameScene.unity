@@ -8354,6 +8354,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlessingStation
       objectReference: {fileID: 0}
+    - target: {fileID: 2811765074039803773, guid: 85049564cabaefb4fab01bc6c0ea4185, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811765074039803773, guid: 85049564cabaefb4fab01bc6c0ea4185, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7694266138949657646, guid: 85049564cabaefb4fab01bc6c0ea4185, type: 3}
       propertyPath: baseDuration
       value: 12
@@ -8373,11 +8381,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 295315376169670050, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.013626683
+      value: 0.013626652
       objectReference: {fileID: 0}
     - target: {fileID: 295315376169670050, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0069557778
+      value: -0.006955762
       objectReference: {fileID: 0}
     - target: {fileID: 5929969687240033659, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_Name
@@ -8453,11 +8461,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7249020413888515854, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.013626683
+      value: 0.013626652
       objectReference: {fileID: 0}
     - target: {fileID: 7249020413888515854, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0069557778
+      value: -0.006955762
       objectReference: {fileID: 0}
     - target: {fileID: 8289628092971140367, guid: 578707c38c1075447a2c9a4cc7db2a02, type: 3}
       propertyPath: m_Follow
@@ -8589,9 +8597,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016622605289194461, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.20000076
+      objectReference: {fileID: 0}
     - target: {fileID: 4852883084326658917, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
       propertyPath: m_Name
       value: ExtractingStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000482249150243795, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000482249150243795, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000482249150243795, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6840281603240735814, guid: 36b829e525cf4e14dafd43705c146cb7, type: 3}
       propertyPath: baseDuration
@@ -8977,6 +9001,18 @@ PrefabInstance:
     - target: {fileID: 6467736592230708435, guid: 77383da15d71fe246b4f52183d3a51e9, type: 3}
       propertyPath: m_Name
       value: DryingStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575888315155352035, guid: 77383da15d71fe246b4f52183d3a51e9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575888315155352035, guid: 77383da15d71fe246b4f52183d3a51e9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575888315155352035, guid: 77383da15d71fe246b4f52183d3a51e9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

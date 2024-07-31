@@ -1,9 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
+    public static Color MeatColour;
+    public Color meatColour;
+    public static Color PlantColour;
+    public Color plantColour;
+    public static Color MineralColour;
+    public Color mineralColour;
+    public static Color MagicColour;
+    public Color magicColour;
+
     public AudioClip spawnSound;
     [Header("Blessed State")]
     public ParticleSystem blessedParticles;
@@ -37,6 +47,37 @@ public class Ingredient : MonoBehaviour
     public string ingredientName;
     public IngredientType ingredientType;
     public IngredientState ingredientState;
+
+    public static Color GetIngredientColour(IngredientType ingredientType)
+    {
+        Color color = Color.white;
+
+        switch (ingredientType)
+        {
+            case IngredientType.Meat:
+                color = MeatColour;
+                break;
+            case IngredientType.Mineral:
+                color = MineralColour;
+                break;
+            case IngredientType.Plant:
+                color = PlantColour;
+                break;
+            case IngredientType.MagicItem:
+                color = MagicColour;
+                break;
+        }
+        return color;
+    }
+    
+    private void Awake()
+    {
+        // eww i dont like this
+        MeatColour = meatColour;
+        PlantColour = plantColour;
+        MagicColour = magicColour;
+        MineralColour = mineralColour;
+    }
 
     void Start()
     {

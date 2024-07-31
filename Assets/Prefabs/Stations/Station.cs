@@ -27,6 +27,7 @@ public class Station : MonoBehaviour
     [Tooltip("How base time (seconds) it takes for this station to complete.")]
     [SerializeField] private float baseDuration = 0.5f;
     [SerializeField] private Slider stationSlider = null;
+    [SerializeField] private Image stationSliderFill = null;
 
     public List<ProcessingIngredient> heldIngredients = new List<ProcessingIngredient>();
     
@@ -66,7 +67,7 @@ public class Station : MonoBehaviour
         // Cache the item
         ProcessingIngredient newItem = new ProcessingIngredient(ingredient, Time.time + baseDuration, ingredient.GetComponent<Rigidbody>());
         heldIngredients.Add(newItem);
-        
+        stationSliderFill.color = Ingredient.GetIngredientColour(ingredient.ingredientType);
         ShowUiSlider();
 
         OnIngredientProcessingStarted?.Invoke(ingredient);

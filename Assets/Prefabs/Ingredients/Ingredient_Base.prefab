@@ -151,6 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9fe4f73f3cade46bc2d22f0f526356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meatColour: {r: 0.64705884, g: 0.08235294, b: 0.15686275, a: 1}
+  plantColour: {r: 0.43529412, g: 0.5529412, b: 0.19215687, a: 1}
+  mineralColour: {r: 0.02745098, g: 0.5921569, b: 1, a: 1}
+  magicColour: {r: 1, g: 0.7058824, b: 0, a: 1}
   spawnSound: {fileID: 8300000, guid: 9dae573b7d7bd0f49815e6e20303978c, type: 3}
   blessedParticles: {fileID: 985220933199116705}
   extractedMesh: {fileID: 0}
