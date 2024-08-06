@@ -17,7 +17,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject recipeWindow;
     [SerializeField] private GameObject gameOverWindow;
     [SerializeField] private Slider cauldronCorruptionSlider;
-    
+
+    public Color recipeCompleteColor;
+    public Color cauldronCorruptedColor;
+
     [Header("Recipe Cards")]
     [SerializeField] private List<RecipeCard> recipeCards = new List<RecipeCard>();
     [SerializeField] private Transform recipeCardContainer;
@@ -105,10 +108,12 @@ public class UIManager : MonoBehaviour
     {
         if(recipeCompleted)
         {
+            notificationText.color = recipeCompleteColor;
             notificationText.text = "Recipe Completed!";
         }
         else
         {
+            notificationText.color = cauldronCorruptedColor;
             notificationText.text = "Cauldron Corrupted!";
         }
 
