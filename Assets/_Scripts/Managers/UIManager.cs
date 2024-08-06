@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI notificationText;
     [SerializeField] private TextMeshProUGUI recipesCompletedText;
+    [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private float textDisplayDuration = 2.0f;
     [SerializeField] private GameObject recipeWindow;
     [SerializeField] private GameObject gameOverWindow;
@@ -121,13 +122,14 @@ public class UIManager : MonoBehaviour
         notificationText.enabled = false;
     }
 
-    public void GameOverUI(int recipesCompleted)
+    public void GameOverUI(int recipesCompleted, int totalScore)
     {
         timerText.enabled = false;
         recipeWindow.SetActive(false);
         notificationText.enabled = false;
         gameOverWindow.SetActive(true);
         recipesCompletedText.text = "Recipes Completed: " + recipesCompleted;
+        scoreText.text = "Final Score: " + totalScore;
     }
 
     public void RestartLevel()

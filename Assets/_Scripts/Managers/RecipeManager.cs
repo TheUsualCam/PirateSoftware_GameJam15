@@ -142,6 +142,7 @@ public class RecipeManager : MonoBehaviour
                 
                 if (isRecipeFinished)
                 {
+                    gameManager.UpdateTotalScore(activeRecipes[recipeIndex].requiredIngredients.Count);
                     // Recipe is complete.
                     recipesToRemove.Add(activeRecipes[recipeIndex]);
                     AudioManager.instance.PlaySoundClip(completeRecipeClip, this.transform, 1f);

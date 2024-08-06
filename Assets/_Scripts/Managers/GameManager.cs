@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private float timerMins = 0;
     private float timerSecs = 0;
     private bool isGameOver = false;
+    private int totalScore = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -63,11 +64,17 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         isGameOver = true;
-        uiManager.GameOverUI(recipeManager.GetNumberOfCompletedRecipes());
+        uiManager.GameOverUI(recipeManager.GetNumberOfCompletedRecipes(), totalScore);
     }
 
     public bool IsGameOver()
     {
         return isGameOver;
+    }
+
+    public void UpdateTotalScore(int numIngredientsInRecipe)
+    {
+        int score = numIngredientsInRecipe * recipeManager.GetNumberOfCompletedRecipes() * 100;
+        totalScore += score;
     }
 }
