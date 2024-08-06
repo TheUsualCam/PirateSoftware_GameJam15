@@ -71,6 +71,7 @@ public class UIManager : MonoBehaviour
             if (card.recipe == updatedRecipe)
             {
                 card.UpdateCard(updatedRecipe);
+                break;
             }
         }
     }
