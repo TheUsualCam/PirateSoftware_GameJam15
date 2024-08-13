@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
         {
             UpdateGameTimer();
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            uiManager.ExitToMainMenu();
+        }
     }
 
     void UpdateGameTimer()
