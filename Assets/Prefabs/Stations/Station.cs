@@ -71,21 +71,10 @@ public class Station : MonoBehaviour
         ProcessingIngredient newItem = new ProcessingIngredient(ingredient, Time.time + baseDuration, ingredient.GetComponent<Rigidbody>());
         heldIngredients.Add(newItem);
 
-        Color ingredientColour = Ingredient.GetIngredientColour(ingredient.ingredientType);
-        
-
-        foreach (var particleSystem in processingParticles)
+        if(heldIngredients.Count == 1)
         {
-            Color alphaIngredientColour = ingredientColour * particleColourAlpha;
-            ParticleSystem.MinMaxGradient particleColour = new ParticleSystem.MinMaxGradient(alphaIngredientColour,
-                new Color(ingredientColour.r * particleColourBrightness, ingredientColour.g * particleColourBrightness, ingredientColour.b * particleColourBrightness, particleColourAlpha));
-            
-            ParticleSystem.MainModule mainParticleModule = particleSystem.main;
-            mainParticleModule.startColor = particleColour;
+            UpdateStationColor(ingredient);
         }
-        
-        stationSliderFill.color = ingredientColour;
-        ShowUiSlider();
 
         OnIngredientProcessingStarted?.Invoke(ingredient);
         
@@ -94,6 +83,24 @@ public class Station : MonoBehaviour
         ingredient.gameObject.SetActive(false);
         ingredient.transform.SetParent(transform);
         ingredient.transform.localPosition = Vector3.zero;
+    }
+
+    private void UpdateStationColor(Ingredient ingredient)
+    {
+        Color ingredientColour = Ingredient.GetIngredientColour(ingredient.ingredientType);
+
+        foreach (var particleSystem in processingParticles)
+        {
+            Color alphaIngredientColour = ingredientColour * particleColourAlpha;
+            ParticleSystem.MinMaxGradient particleColour = new ParticleSystem.MinMaxGradient(alphaIngredientColour,
+                new Color(ingredientColour.r * particleColourBrightness, ingredientColour.g * particleColourBrightness, ingredientColour.b * particleColourBrightness, particleColourAlpha));
+
+            ParticleSystem.MainModule mainParticleModule = particleSystem.main;
+            mainParticleModule.startColor = particleColour;
+        }
+
+        stationSliderFill.color = ingredientColour;
+        ShowUiSlider();
     }
 
     private void ShowUiSlider()
@@ -168,6 +175,11 @@ public class Station : MonoBehaviour
         }
 
         IngredientsToRemove.Clear();
+
+        if(heldIngredients.Count > 0)
+        {
+            UpdateStationColor(heldIngredients[0]._ingredient);
+        }
     }
 
     private void ProcessParticleSystems()
@@ -207,9 +219,13 @@ public class Station : MonoBehaviour
 
         throwDirection.x = Random.Range(throwXRange.x, throwXRange.y);
         processingIngredient._rigidbody.AddForce(finishedIngredientSpawnPoint.TransformDirection(throwDirection) * Random.Range(throwStrengthRange.x, throwStrengthRange.y), ForceMode.Impulse);
-        stationSlider.value = 0;
-        stationSlider.gameObject.SetActive(false);
         AudioManager.instance.PlaySoundClip(releaseClip, ingredient.transform, 1f);
+
+        if(heldIngredients.Count == 0)
+        {
+            stationSlider.value = 0;
+            stationSlider.gameObject.SetActive(false);
+        }
     }
 
     IEnumerator ReEnableMeshCollider(Ingredient ingredient)
