@@ -78,7 +78,6 @@ MonoBehaviour:
   - {fileID: 9006744344759413422}
   - {fileID: 3393274284085122541}
   - {fileID: 4201285229712643274}
-  idleAnimation: {fileID: 7400000, guid: b53ed843e2a2d2e4d81a63ffd45bb890, type: 2}
 --- !u!95 &8466699277375640073
 Animator:
   serializedVersion: 5
@@ -87,7 +86,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886694546136050848}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c065031300f87e346b7d08200dff702e, type: 2}
   m_CullingMode: 0
